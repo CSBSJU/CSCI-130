@@ -288,12 +288,12 @@ geometry: margin=1in
 
 # Part II
 
-Before writing this program, study and run the sample ''General
-Concepts/FormLevelVariables\_GeneralStore'' in the VB\_Examples folder inside
-our CS130 folder on the N: drive and then create a program that will allow a
+Before writing this program, study and run the sample "General
+Concepts/FormLevelVariables\_GeneralStore" in the VB\_Examples folder inside our
+CS130 folder on the N: drive and then create a program that will allow a
 customer to make purchases by clicking on buttons as shown below. 
 
-![](pic1.png)
+![](pic3.png)
 
 In particular, assume there are 4 products available – Soap, Light Bulbs, Candy
 Bars, and Soda. Your program should have a button for each of these products as
@@ -331,7 +331,24 @@ format.
 
 **Here is an example. If the user clicks Soap twice, Light Bulbs once, and Soda
 once and then clicks the Total button, what should appear in the output box
-should be exactly as you see below:**
+should be *exactly* as you see below:**
+
+```
+Soap              $1.85
+Soap              $1.85
+Light Bulb        $1.25
+Soda              $0.50
+----------------------------
+Subtotal          $5.45
+Tax               $0.38
+Total             $5.83
+```
+
+Consider using a format string variable `frmtStr` to space your output
+appropriately. It will need to be declared as a form-level variable to be
+accessible to all the subroutines. Be sure to set the font of your textbox to
+`Courier New` in order for output to display properly. An example of how to
+declare and use `frmtStr` is below.
 
 ```vbnet
 ' Variable frmtStr should be declared at the top of the form as a form-level
