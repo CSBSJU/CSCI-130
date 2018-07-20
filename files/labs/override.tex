@@ -16,26 +16,28 @@
 \let\oldrule=\rule
 \renewcommand{\rule}[1]{\oldrule{\linewidth}}
 
-\makeatletter
-\renewenvironment{Shaded}[1][\hsize]
-{%
-  \def\FrameCommand
+\ifdefined \Shaded
+  \makeatletter
+  \renewenvironment{Shaded}[1][\hsize]
   {%
+    \def\FrameCommand
     {%
-      \color{lightgray}\vrule width 8pt}%
-      \hspace{0pt}%must no space.
-      \fboxsep=\FrameSep\fcolorbox{lightgray}{white}%
+      {%
+        \color{lightgray}\vrule width 8pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\fcolorbox{lightgray}{white}%
+      }%
+    \MakeFramed{%
+      \hsize#1\advance\hsize-\width%
+      \@totalleftmargin=-\itemindent%
+      \FrameRestore%
     }%
-  \MakeFramed{%
-    \hsize#1\advance\hsize-\width%
-    \@totalleftmargin=-\itemindent%
-    \FrameRestore%
   }%
-}
-{\endMakeFramed}
-\makeatother
+  {\endMakeFramed}%
+  \makeatother
 
-\renewcommand{\CommentTok}[1]{\textcolor[RGB]{0,128,0}{#1}}
-\renewcommand{\KeywordTok}[1]{\textcolor[RGB]{0,0,255}{#1}}
-\renewcommand{\StringTok}[1]{\textcolor[RGB]{163,21,21}{#1}}
-\renewcommand{\BuiltInTok}[1]{\textcolor[RGB]{43,145,175}{#1}}
+  \renewcommand{\CommentTok}[1]{\textcolor[RGB]{0,128,0}{#1}}
+  \renewcommand{\KeywordTok}[1]{\textcolor[RGB]{0,0,255}{#1}}
+  \renewcommand{\StringTok}[1]{\textcolor[RGB]{163,21,21}{#1}}
+  \renewcommand{\BuiltInTok}[1]{\textcolor[RGB]{43,145,175}{#1}}
+\fi
