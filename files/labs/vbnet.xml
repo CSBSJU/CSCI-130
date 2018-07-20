@@ -26,6 +26,7 @@
     </list>
     <list name="builtins">
       <item>EventArgs</item>
+      <item>OpenMode</item>
     </list>
     <contexts>
       <context attribute="Normal Text" lineEndContext="#stay" name="Normal">

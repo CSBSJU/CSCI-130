@@ -39,9 +39,8 @@ beginning of the year (note: this will change each year as interest is
 compounded), and *R* is the [nominal interest
 rate](https://en.wikipedia.org/wiki/Nominal_interest_rate).
 
-  a. When done, convert your program to VB. Present the total amount of earned
-     interest to the user using a MsgBox and in a sentence of the following
-     form:
+  a. When done, convert your program to VB. Using a MsgBox, present the total
+     amount of earned interest to the user in a sentence of the following form:
 
      ```
      After 10 years of compounding, your savings account with an initial balance
@@ -52,7 +51,8 @@ rate](https://en.wikipedia.org/wiki/Nominal_interest_rate).
      whatever values were input by the user.
 
 * * *
-C level --- loops that repeat a user-defined (fixed) number of times.
+C level --- loops that repeat a user-defined (fixed) number of times. (ALSO do a
+WHILE LOOP)
 
 * * *
 
