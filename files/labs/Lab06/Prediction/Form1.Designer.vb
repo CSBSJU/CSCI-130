@@ -24,14 +24,16 @@ Partial Class frmPrediction
     Private Sub InitializeComponent()
         Me.btnQuit = New System.Windows.Forms.Button()
         Me.outResults = New System.Windows.Forms.RichTextBox()
-        Me.btnPredict = New System.Windows.Forms.Button()
+        Me.btnPredictRatings = New System.Windows.Forms.Button()
+        Me.btnLoadData = New System.Windows.Forms.Button()
+        Me.btnComputeDistances = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnQuit
         '
-        Me.btnQuit.Location = New System.Drawing.Point(13, 416)
+        Me.btnQuit.Location = New System.Drawing.Point(456, 12)
         Me.btnQuit.Name = "btnQuit"
-        Me.btnQuit.Size = New System.Drawing.Size(459, 33)
+        Me.btnQuit.Size = New System.Drawing.Size(136, 33)
         Me.btnQuit.TabIndex = 5
         Me.btnQuit.Text = "Quit"
         Me.btnQuit.UseVisualStyleBackColor = True
@@ -42,27 +44,47 @@ Partial Class frmPrediction
         Me.outResults.Location = New System.Drawing.Point(13, 52)
         Me.outResults.Name = "outResults"
         Me.outResults.ReadOnly = True
-        Me.outResults.Size = New System.Drawing.Size(459, 358)
+        Me.outResults.Size = New System.Drawing.Size(579, 397)
         Me.outResults.TabIndex = 4
         Me.outResults.Text = ""
         '
-        'btnPredict
+        'btnPredictRatings
         '
-        Me.btnPredict.Location = New System.Drawing.Point(12, 12)
-        Me.btnPredict.Name = "btnPredict"
-        Me.btnPredict.Size = New System.Drawing.Size(460, 33)
-        Me.btnPredict.TabIndex = 3
-        Me.btnPredict.Text = "Predict"
-        Me.btnPredict.UseVisualStyleBackColor = True
+        Me.btnPredictRatings.Location = New System.Drawing.Point(308, 12)
+        Me.btnPredictRatings.Name = "btnPredictRatings"
+        Me.btnPredictRatings.Size = New System.Drawing.Size(136, 33)
+        Me.btnPredictRatings.TabIndex = 3
+        Me.btnPredictRatings.Text = "Predict rating"
+        Me.btnPredictRatings.UseVisualStyleBackColor = True
+        '
+        'btnLoadData
+        '
+        Me.btnLoadData.Location = New System.Drawing.Point(12, 12)
+        Me.btnLoadData.Name = "btnLoadData"
+        Me.btnLoadData.Size = New System.Drawing.Size(136, 33)
+        Me.btnLoadData.TabIndex = 6
+        Me.btnLoadData.Text = "Load data"
+        Me.btnLoadData.UseVisualStyleBackColor = True
+        '
+        'btnComputeDistances
+        '
+        Me.btnComputeDistances.Location = New System.Drawing.Point(160, 12)
+        Me.btnComputeDistances.Name = "btnComputeDistances"
+        Me.btnComputeDistances.Size = New System.Drawing.Size(136, 33)
+        Me.btnComputeDistances.TabIndex = 7
+        Me.btnComputeDistances.Text = "Compute distances"
+        Me.btnComputeDistances.UseVisualStyleBackColor = True
         '
         'frmPrediction
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(484, 461)
+        Me.ClientSize = New System.Drawing.Size(604, 461)
+        Me.Controls.Add(Me.btnComputeDistances)
+        Me.Controls.Add(Me.btnLoadData)
         Me.Controls.Add(Me.btnQuit)
         Me.Controls.Add(Me.outResults)
-        Me.Controls.Add(Me.btnPredict)
+        Me.Controls.Add(Me.btnPredictRatings)
         Me.Name = "frmPrediction"
         Me.Text = "Prediction"
         Me.ResumeLayout(False)
@@ -70,6 +92,8 @@ Partial Class frmPrediction
     End Sub
     Friend WithEvents btnQuit As System.Windows.Forms.Button
     Friend WithEvents outResults As System.Windows.Forms.RichTextBox
-    Friend WithEvents btnPredict As System.Windows.Forms.Button
+    Friend WithEvents btnPredictRatings As System.Windows.Forms.Button
+    Friend WithEvents btnLoadData As System.Windows.Forms.Button
+    Friend WithEvents btnComputeDistances As System.Windows.Forms.Button
 
 End Class

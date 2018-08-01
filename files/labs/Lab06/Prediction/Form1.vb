@@ -1,109 +1,108 @@
 ﻿Option Explicit On
 
-#Const D = 0 ' Echo the values from the file to outResults
+#Const D1 = 0.1 ' Echo the values from the file to outResults
+#Const D2 = 0.2 ' Compute average rating for each of the movies and output to outResults
 #Const C1 = 1.1 ' Output distances to outResults
-#Const C2 = 1.2 ' Make a prediction using the minimum distance sample
-#Const B1 = 2.1 ' Add sampleID array, sort parallel arrays, and make a prediction using the minimum distance sample
-#Const B2 = 2.2 ' Output a table with the /k/ minimum distance samples
-#Const A = 3 ' Make prediction using the /k/ minimum distance samples
-#Const LEVEL = A
+#Const B1 = 2.1 ' Make a prediction using the minimum distance sample
+#Const A1 = 3.1 ' Add sampleID array, sort parallel arrays, and make a prediction using the minimum distance sample
+#Const A2 = 3.2 ' Output a table with the /k/ minimum distance samples
+#Const A3 = 3.3 ' Make prediction using the /k/ minimum distance samples
+#Const LEVEL = A3
+
 
 Public Class frmPrediction
-#If LEVEL = D Then
-    Private Sub btnPredict_Click(sender As Object, e As EventArgs) Handles btnPredict.Click
-        Dim totalRows As Integer = 0
-        Dim sepalLength(119) As Single, sepalWidth(119) As Single, petalLength(119) As Single, petalWidth(119) As Single, label(119) As String
-        Dim fmtStr As String = "Sample #{0:000} => {1:0.0}, {2:0.0}, {3:0.0}, {4:0.0} : {5,-10}" & vbNewLine
+    Dim totalUsers As Integer = 0
+    Dim movie1(22418) As Single, movie2(22418) As Single, movie3(22418) As Single, movie4(22418) As Single, movie5(22418) As Single
+    Dim distance(22418) As Single
 
-        FileOpen(1, "FisherIrisDataset.csv", OpenMode.Input)
+#If LEVEL >= D1 Then
+    Private Sub btnLoadData_Click(sender As Object, e As EventArgs) Handles btnLoadData.Click
+        FileOpen(1, "ML-latest.csv", OpenMode.Input)
 
-        outResults.Clear()
         Do While Not EOF(1)
-            Input(1, sepalLength(totalRows))
-            Input(1, sepalWidth(totalRows))
-            Input(1, petalLength(totalRows))
-            Input(1, petalWidth(totalRows))
-            Input(1, label(totalRows))
+            Input(1, movie1(totalUsers))
+            Input(1, movie2(totalUsers))
+            Input(1, movie3(totalUsers))
+            Input(1, movie4(totalUsers))
+            Input(1, movie5(totalUsers))
 
-            outResults.AppendText(String.Format(fmtStr, totalRows, sepalLength(totalRows), sepalWidth(totalRows), petalLength(totalRows), petalWidth(totalRows), label(totalRows)))
-
-            totalRows = totalRows + 1
+            totalUsers = totalUsers + 1
         Loop
 
         FileClose(1)
+
+        outResults.Clear()
+        outResults.AppendText(totalUsers & " users' ratings were read from the file.")
     End Sub
-#ElseIf LEVEL = C1 Then
-        Private Sub btnPredict_Click(sender As Object, e As EventArgs) Handles btnPredict.Click
-        Dim totalRows As Integer = 0, distance As Single
-        Dim userSepalLength As Single, userSepalWidth As Single, userPetalLength As Single, userPetalWidth As Single
-        Dim sepalLength(119) As Single, sepalWidth(119) As Single, petalLength(119) As Single, petalWidth(119) As Single, label(119) As String
-        Dim fmtStr As String = "Sample #{0:000} => {1:0.0}, {2:0.0}, {3:0.0}, {4:0.0} : {5,-10} <= {6,4:0.0}" & vbNewLine
+#End If
 
-        FileOpen(1, "FisherIrisDataset.csv", OpenMode.Input)
-
-        Do While Not EOF(1)
-            Input(1, sepalLength(totalRows))
-            Input(1, sepalWidth(totalRows))
-            Input(1, petalLength(totalRows))
-            Input(1, petalWidth(totalRows))
-            Input(1, label(totalRows))
-
-            totalRows = totalRows + 1
-        Loop
-
-        FileClose(1)
-
-        userSepalLength = InputBox("Enter a sepal length:")
-        userSepalWidth = InputBox("Enter a sepal width:")
-        userPetalLength = InputBox("Enter a petal length:")
-        userPetalWidth = InputBox("Enter a petal width:")
+#If LEVEL = D1 Then
+    Private Sub btnComputeDistances_Click(sender As Object, e As EventArgs) Handles btnComputeDistances.Click
+        Dim fmtStr As String = "{0,7}   {1,7:0.0}   {2,7:0.0}   {3,7:0.0}   {4,7:0.0}   " & _
+            "{5,7:0.0}" & vbNewLine
 
         outResults.Clear()
-        For i As Integer = 0 To totalRows - 1
-            distance = Math.Abs(userSepalLength - sepalLength(i))
-            distance += Math.Abs(userSepalWidth - sepalWidth(i))
-            distance += Math.Abs(userPetalLength - petalLength(i))
-            distance += Math.Abs(userPetalWidth - petalWidth(i))
-
-            outResults.AppendText(String.Format(fmtStr, i, sepalLength(i), sepalWidth(i), petalLength(i), petalWidth(i), label(i), distance))
+        outResults.AppendText("User ID   Movie 1   Movie 2   Movie 3   Movie 4   Movie 5" & vbNewLine)
+        outResults.AppendText("-------   -------   -------   -------   -------   -------" & vbNewLine)
+        For i As Integer = 0 To totalUsers - 1
+            outResults.AppendText(String.Format(fmtStr, i, movie1(i), movie2(i), movie3(i), movie4(i), movie5(i)))
         Next
+        outResults.AppendText("---------------------------------------------------------" & vbNewLine)
     End Sub
-#ElseIf LEVEL = C2 Then
-        Private Sub btnPredict_Click(sender As Object, e As EventArgs) Handles btnPredict.Click
-        Dim totalRows As Integer = 0, distance(119) As Single
+#ElseIf LEVEL = D2 Then
+    Private Sub btnComputeDistances_Click(sender As Object, e As EventArgs) Handles btnComputeDistances.Click
+        Dim sum1 As Single = 0.0, sum2 As Single = 0.0, sum3 As Single = 0.0, sum4 As Single = 0.0, sum5 As Single = 0.0
+        Dim fmtStr As String = "{0,7:0.0}   {1,7:0.0}   {2,7:0.0}   {3,7:0.0}   " & _
+            "{4,7:0.0}" & vbNewLine
+
+        For i As Integer = 0 To totalUsers - 1
+            sum1 = sum1 + movie1(i)
+            sum2 = sum2 + movie2(i)
+            sum3 = sum3 + movie3(i)
+            sum4 = sum4 + movie4(i)
+            sum5 = sum5 + movie5(i)
+        Next
+
+        outResults.Clear()
+        outResults.AppendText("Movie 1   Movie 2   Movie 3   Movie 4   Movie 5" & vbNewLine)
+        outResults.AppendText("-------   -------   -------   -------   -------" & vbNewLine)
+        outResults.AppendText(String.Format(fmtStr, sum1 / totalUsers, sum2 / totalUsers, sum3 / totalUsers, sum4 / totalUsers, sum5 / totalUsers))
+        outResults.AppendText("-----------------------------------------------" & vbNewLine)
+    End Sub
+#ElseIf LEVEL >= C1 Then
+    Private Sub btnComputeDistances_Click(sender As Object, e As EventArgs) Handles btnComputeDistances.Click
+        Dim userMovie1 As Single, userMovie2 As Single, userMovie3 As Single, userMovie4 As Single
+        Dim fmtStr1 As String = "Distance results for user ratings ({0:0.0},{1:0.0},{2:0.0},{3:0.0})" & vbNewLine
+        Dim fmtStr2 As String = "{0,7}   {1,7:0.0}   {2,7:0.0}   {3,7:0.0}   {4,7:0.0}   " & _
+            "{5,8:0.0}" & vbNewLine
+
+        userMovie1 = InputBox("Enter a rating for movie 1:")
+        userMovie2 = InputBox("Enter a rating for movie 2:")
+        userMovie3 = InputBox("Enter a rating for movie 3:")
+        userMovie4 = InputBox("Enter a rating for movie 4:")
+
+        outResults.Clear()
+        outResults.AppendText(String.Format(fmtStr1, userMovie1, userMovie2, userMovie3, userMovie4))
+        outResults.AppendText("----------------------------------------------------------" & vbNewLine)
+        outResults.AppendText("User ID   Movie 1   Movie 2   Movie 3   Movie 4   Distance" & vbNewLine)
+        outResults.AppendText("-------   -------   -------   -------   -------   --------" & vbNewLine)
+        For i As Integer = 0 To totalUsers - 1
+            distance(i) = Math.Abs(userMovie1 - movie1(i))
+            distance(i) += Math.Abs(userMovie2 - movie2(i))
+            distance(i) += Math.Abs(userMovie3 - movie3(i))
+            distance(i) += Math.Abs(userMovie4 - movie4(i))
+
+            outResults.AppendText(String.Format(fmtStr2, i, movie1(i), movie2(i), movie3(i), movie4(i), distance(i)))
+        Next
+        outResults.AppendText("----------------------------------------------------------" & vbNewLine)
+    End Sub
+#End If
+
+#If LEVEL = B1 Then
+    Private Sub btnPredictRatings_Click(sender As Object, e As EventArgs) Handles btnPredictRatings.Click
         Dim minDistance As Single = Single.MaxValue, minIndex As Integer
-        Dim userSepalLength As Single, userSepalWidth As Single, userPetalLength As Single, userPetalWidth As Single
-        Dim sepalLength(119) As Single, sepalWidth(119) As Single, petalLength(119) As Single, petalWidth(119) As Single, label(119) As String
 
-        FileOpen(1, "FisherIrisDataset.csv", OpenMode.Input)
-
-        Do While Not EOF(1)
-            Input(1, sepalLength(totalRows))
-            Input(1, sepalWidth(totalRows))
-            Input(1, petalLength(totalRows))
-            Input(1, petalWidth(totalRows))
-            Input(1, label(totalRows))
-
-            totalRows = totalRows + 1
-        Loop
-
-        FileClose(1)
-
-        userSepalLength = InputBox("Enter a sepal length:")
-        userSepalWidth = InputBox("Enter a sepal width:")
-        userPetalLength = InputBox("Enter a petal length:")
-        userPetalWidth = InputBox("Enter a petal width:")
-
-        ' Compute distances
-        For i As Integer = 0 To totalRows - 1
-            distance(i) = Math.Abs(userSepalLength - sepalLength(i))
-            distance(i) += Math.Abs(userSepalWidth - sepalWidth(i))
-            distance(i) += Math.Abs(userPetalLength - petalLength(i))
-            distance(i) += Math.Abs(userPetalWidth - petalWidth(i))
-        Next
-
-        ' Find minimum distances
-        For i As Integer = 0 To totalRows - 1
+        For i As Integer = 0 To totalUsers - 1
             If distance(i) < minDistance Then
                 minDistance = distance(i)
                 minIndex = i
@@ -111,170 +110,74 @@ Public Class frmPrediction
         Next
 
         outResults.Clear()
-        outResults.AppendText("The minimum distance was sample #" & minIndex & " and the distance was " & String.Format("{0:0.0}", minDistance) & "." & vbNewLine)
-        outResults.AppendText("The predicted class for the user sample is '" & label(minIndex) & "'.")
+        outResults.AppendText("The most similar user was user #" & minIndex & " and the distance calculated was " & String.Format("{0:0.0}", minDistance) & "." & vbNewLine)
+        outResults.AppendText("The predicted rating for movie 5 for the user is '" & movie5(minIndex) & "'.")
     End Sub
-#ElseIf LEVEL = B1 Then
-        Private Sub btnPredict_Click(sender As Object, e As EventArgs) Handles btnPredict.Click
-        Dim totalRows As Integer = 0, distance(119) As Single
-        Dim userSepalLength As Single, userSepalWidth As Single, userPetalLength As Single, userPetalWidth As Single
-        Dim sampleID(119) As Integer
-        Dim sepalLength(119) As Single, sepalWidth(119) As Single, petalLength(119) As Single, petalWidth(119) As Single, label(119) As String
+#ElseIf LEVEL = A1 Then
+    Private Sub btnPredictRatings_Click(sender As Object, e As EventArgs) Handles btnPredictRatings.Click
+        Dim originalUserID(22418) As Integer
 
-        FileOpen(1, "FisherIrisDataset.csv", OpenMode.Input)
-
-        Do While Not EOF(1)
-            sampleID(totalRows) = totalRows
-            Input(1, sepalLength(totalRows))
-            Input(1, sepalWidth(totalRows))
-            Input(1, petalLength(totalRows))
-            Input(1, petalWidth(totalRows))
-            Input(1, label(totalRows))
-
-            totalRows = totalRows + 1
-        Loop
-
-        FileClose(1)
-
-        userSepalLength = InputBox("Enter a sepal length:")
-        userSepalWidth = InputBox("Enter a sepal width:")
-        userPetalLength = InputBox("Enter a petal length:")
-        userPetalWidth = InputBox("Enter a petal width:")
-
-        ' Compute distances
-        For i As Integer = 0 To totalRows - 1
-            distance(i) = Math.Abs(userSepalLength - sepalLength(i))
-            distance(i) += Math.Abs(userSepalWidth - sepalWidth(i))
-            distance(i) += Math.Abs(userPetalLength - petalLength(i))
-            distance(i) += Math.Abs(userPetalWidth - petalWidth(i))
+        For i As Integer = 0 To totalUsers - 1
+            originalUserID(i) = i
         Next
 
-        ' Sort the arrays
-        Array.Sort(distance, sampleID)
+        ' NOTE: Array.Sort is an unstable sort.
+        Array.Sort(distance, originalUserID)
 
         outResults.Clear()
-        outResults.AppendText("The minimum distance was sample #" & sampleID(0) & " and the distance was " & String.Format("{0:0.0}", distance(0)) & "." & vbNewLine)
-        outResults.AppendText("The predicted class for the user sample is '" & label(sampleID(0)) & "'.")
+        outResults.AppendText("The most similar user was user #" & originalUserID(0) & " and the distance calculated was " & String.Format("{0:0.0}", distance(0)) & "." & vbNewLine)
+        outResults.AppendText("The predicted rating for movie 5 for the user is '" & movie5(originalUserID(0)) & "'.")
     End Sub
-#ElseIf LEVEL = B2 Then
-        Private Sub btnPredict_Click(sender As Object, e As EventArgs) Handles btnPredict.Click
-        Dim totalRows As Integer = 0, distance(119) As Single, numberOfNeighbors As Integer
-        Dim userSepalLength As Single, userSepalWidth As Single, userPetalLength As Single, userPetalWidth As Single
-        Dim sampleID(119) As Integer
-        Dim sepalLength(119) As Single, sepalWidth(119) As Single, petalLength(119) As Single, petalWidth(119) As Single, label(119) As String
-        Dim fmtStr As String = "{0,8}   {1,10}   {2,8:0.0}" & vbNewLine
+#ElseIf LEVEL = A2 Then
+    Private Sub btnPredictRatings_Click(sender As Object, e As EventArgs) Handles btnPredictRatings.Click
+        Dim numberOfNeighbors As Integer
+        Dim originalUserID(22418) As Integer
+        Dim fmtStr As String = "{0,7}   {1,7:0.0}   {2,8:0.0}" & vbNewLine
 
-        FileOpen(1, "FisherIrisDataset.csv", OpenMode.Input)
-
-        Do While Not EOF(1)
-            sampleID(totalRows) = totalRows
-            Input(1, sepalLength(totalRows))
-            Input(1, sepalWidth(totalRows))
-            Input(1, petalLength(totalRows))
-            Input(1, petalWidth(totalRows))
-            Input(1, label(totalRows))
-
-            totalRows = totalRows + 1
-        Loop
-
-        FileClose(1)
-
-        userSepalLength = InputBox("Enter a sepal length:")
-        userSepalWidth = InputBox("Enter a sepal width:")
-        userPetalLength = InputBox("Enter a petal length:")
-        userPetalWidth = InputBox("Enter a petal width:")
-
-        ' Compute distances
-        For i As Integer = 0 To totalRows - 1
-            distance(i) = Math.Abs(userSepalLength - sepalLength(i))
-            distance(i) += Math.Abs(userSepalWidth - sepalWidth(i))
-            distance(i) += Math.Abs(userPetalLength - petalLength(i))
-            distance(i) += Math.Abs(userPetalWidth - petalWidth(i))
+        For i As Integer = 0 To totalUsers - 1
+            originalUserID(i) = i
         Next
 
-        ' Sort the arrays
-        Array.Sort(distance, sampleID)
+        ' NOTE: Array.Sort is an unstable sort.
+        Array.Sort(distance, originalUserID)
 
         numberOfNeighbors = InputBox("Enter a number of neighbors:")
 
         outResults.Clear()
-        outResults.AppendText("Sample #        Class   Distance" & vbNewLine)
-        outResults.AppendText("--------   ----------   --------" & vbNewLine)
+        outResults.AppendText("User ID   Movie 5   Distance" & vbNewLine)
+        outResults.AppendText("-------   -------   --------" & vbNewLine)
         For i As Integer = 0 To numberOfNeighbors - 1
-            outResults.AppendText(String.Format(fmtStr, sampleID(i), label(sampleID(i)), distance(i)))
+            outResults.AppendText(String.Format(fmtStr, originalUserID(i), movie5(originalUserID(i)), distance(i)))
         Next
+        outResults.AppendText("----------------------------" & vbNewLine)
     End Sub
-#ElseIf LEVEL = A Then
-        Private Sub btnPredict_Click(sender As Object, e As EventArgs) Handles btnPredict.Click
-        Dim totalRows As Integer = 0, distance(119) As Single, numberOfNeighbors As Integer
-        Dim classes(2) As String, numberInClass As Integer, maxNumberInClass As Integer = 0, maxClass As String
-        Dim userSepalLength As Single, userSepalWidth As Single, userPetalLength As Single, userPetalWidth As Single
-        Dim sampleID(119) As Integer
-        Dim sepalLength(119) As Single, sepalWidth(119) As Single, petalLength(119) As Single, petalWidth(119) As Single, label(119) As String
-        Dim fmtStr As String = "{0,8}   {1,10}   {2,8:0.0}" & vbNewLine
+#ElseIf LEVEL = A3 Then
+    Private Sub btnPredictRatings_Click(sender As Object, e As EventArgs) Handles btnPredictRatings.Click
+        Dim numberOfNeighbors As Integer, sum As Single = 0.0
+        Dim originalUserID(22418) As Integer
+        Dim fmtStr As String = "{0,7}   {1,7:0.0}   {2,8:0.0}" & vbNewLine
 
-        FileOpen(1, "FisherIrisDataset.csv", OpenMode.Input)
-
-        Do While Not EOF(1)
-            sampleID(totalRows) = totalRows
-            Input(1, sepalLength(totalRows))
-            Input(1, sepalWidth(totalRows))
-            Input(1, petalLength(totalRows))
-            Input(1, petalWidth(totalRows))
-            Input(1, label(totalRows))
-
-            totalRows = totalRows + 1
-        Loop
-
-        FileClose(1)
-
-        userSepalLength = InputBox("Enter a sepal length:")
-        userSepalWidth = InputBox("Enter a sepal width:")
-        userPetalLength = InputBox("Enter a petal length:")
-        userPetalWidth = InputBox("Enter a petal width:")
-
-        ' Compute distances
-        For i As Integer = 0 To totalRows - 1
-            distance(i) = Math.Abs(userSepalLength - sepalLength(i))
-            distance(i) += Math.Abs(userSepalWidth - sepalWidth(i))
-            distance(i) += Math.Abs(userPetalLength - petalLength(i))
-            distance(i) += Math.Abs(userPetalWidth - petalWidth(i))
+        For i As Integer = 0 To totalUsers - 1
+            originalUserID(i) = i
         Next
 
-        ' Sort the arrays
-        Array.Sort(distance, sampleID)
+        ' NOTE: Array.Sort is an unstable sort.
+        Array.Sort(distance, originalUserID)
 
         numberOfNeighbors = InputBox("Enter a number of neighbors:")
 
         outResults.Clear()
-        outResults.AppendText("Sample #        Class   Distance" & vbNewLine)
-        outResults.AppendText("--------   ----------   --------" & vbNewLine)
+        outResults.AppendText("User ID   Movie 5   Distance" & vbNewLine)
+        outResults.AppendText("-------   -------   --------" & vbNewLine)
         For i As Integer = 0 To numberOfNeighbors - 1
-            outResults.AppendText(String.Format(fmtStr, sampleID(i), label(sampleID(i)), distance(i)))
+            outResults.AppendText(String.Format(fmtStr, originalUserID(i), movie5(originalUserID(i)), distance(i)))
         Next
-        outResults.AppendText("--------------------------------" & vbNewLine)
+        outResults.AppendText("----------------------------" & vbNewLine)
 
-        classes(0) = "setosa"
-        classes(1) = "versicolor"
-        classes(2) = "virginica"
-
-        ' Find the class that has the greatest number of samples in the top /k/
-        For i As Integer = 0 To classes.Length - 1
-            numberInClass = 0
-
-            For j As Integer = 0 To numberOfNeighbors - 1
-                If label(sampleID(j)) = classes(i) Then
-                    numberInClass = numberInClass + 1
-                End If
-            Next
-
-            If numberInClass > maxNumberInClass Then
-                maxNumberInClass = numberInClass
-                maxClass = classes(i)
-            End If
+        For i As Integer = 0 To numberOfNeighbors - 1
+            sum = sum + movie5(i)
         Next
-
-        outResults.AppendText("The predicted class for the user sample is '" & maxClass & "' with " & maxNumberInClass & " samples in the top " & numberOfNeighbors & ".")
+        outResults.AppendText("The predicted rating for movie 5 for the user is '" & String.Format("{0:0.0}", sum / numberOfNeighbors) & "'.")
     End Sub
 #End If
 
