@@ -17,7 +17,7 @@ Public Class frmPrediction
 
 #If LEVEL >= D1 Then
     Private Sub btnLoadData_Click(sender As Object, e As EventArgs) Handles btnLoadData.Click
-        FileOpen(1, "ML-latest.csv", OpenMode.Input)
+        FileOpen(1, "ML-ratings.csv", OpenMode.Input)
 
         Do While Not EOF(1)
             Input(1, movie1(totalUsers))

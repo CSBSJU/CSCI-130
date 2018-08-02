@@ -1,85 +1,154 @@
 ---
 title: "Using datasets to make predictions"
-geometry: margin=1in
 ---
+
+## TL;DR
+Implement a program to predict the rating that a user will assign to a movie
+based on their ratings for other movies and the ratings of other users for the
+same movies.
 
 ## Learning objectives
 This exercise is designed to help you learn about (and assess whether you have
 learned about):
 
 * Reading from CSV files into parallel arrays
+* More practice with formatting strings
 * Finding the minimum value in an array
 * Using the `Arrays.sort` function in Visual Basic
-* Using nested loops
 
 ## Background
-These lab exercises use datasets containing information about three different
-varieties of iris flower: setosa, versicolor & virginica. One set of data (from
-which you’ve seen a sample in Lab 03), FisherIrisDatasetValues.csv &
-FisherIrisDatasetLabels.csv, created by Sir Ronald Aylmer Fisher from
-measurements of actual plants will be used as a basis for predicting the variety
-of  new sample plants by comparing the measurements of the new sample with the
-verified data from the dataset. File FisherIrisDatasetValues.csv contains 120
-flowers (i.e. rows) each containing four numeric measurements (i.e. columns):
-sepal length, sepal width, petal length and petal width. The flower type of each
-of these flowers is recorded in file FisherIrisDatasetLabels.csv.
+These lab exercises use a dataset that is maintained by the
+[GroupLens](https://grouplens.org) research group at the University of
+Minnesota. The dataset is part of the [MovieLens](https://movielens.org)
+project. In their own words, MovieLens is a platform for "*Non-commercial,
+personalized movie recommendations*"; think Netflix recommendations, but not for
+profit. The dataset that we will be exploring consists of movie ratings for five
+popular movies from 22419 unique users. In the file `ML-latest.csv` each row
+constitutes the ratings for a single user for each of the five movies. For
+example, the first three rows in the file look like:
 
-The other set of data, OtherIrisSamplesValues.csv & OtherIrisSamplesLabels.csv,
-contain information on 30 more flowers and will be used as a test of the
-reliability of the prediction system that you will build in the first exercise.
+```
+4.0,4.5,4.0,4.0,3.0
+3.0,4.0,5.0,4.0,5.0
+5.0,5.0,5.0,5.0,5.0
+```
+
+This means that user 0, rated movie 1, 4.0 stars out of 5 possible, movie 2, 4.5
+stars, movie 3, 4.0 stars, and so on. Likewise for user 1 and 2. The title for
+each of the five movies is recorded in file `ML-titles.txt`.
 
 ## Instructions
-In order to compare the measurements of say, the petal length of the new sample,
-to those in the database, you need to calculate a similarity measure. A common
-way to do this is to calculate the absolute difference between the sample and
-the verified data for each of the measurements and compute a total difference
-measurement. Rather than just computing the raw total difference between the
-measurements, it is more accurate to compute each of the differences as a
-fraction of the range of values for each measurement. This distance measure is
-known as the Manhattan Distance (a.k.a. City-block distance). For example, if
-the length of the petal was two inches longer than one sample in the dataset,
-the contribution of two inches to the total difference might out-weigh a
-difference of one half inch in the petal width, whereas maybe the difference in
-the petal width is proportionally much more of a difference in the typical plant
-measurements. The entries from the dataset that have the smallest difference
-from the sample are then used to predict the iris type of the sample. This
-algorithm, called the kNN algorithm, or k-nearest neighbors, can be applied to
-many different types of problems from predicting your credit score to predicting
-the type of cancer in a patient.  Use the algorithm below to develop a program,
-(MATLAB script), called Lab9Part1_KNN.m that will get four measurements of a
-single iris plant from the user, and from those measurements, predict the iris
-variety of that plant.
+The objective for the lab is to make an accurate prediction of the rating that a
+user will assign to a movie based on their ratings for other movies and the
+ratings of other users for the same movies. The basic idea is to take a user's
+ratings for a set of movies and find other users with similar ratings. These
+similar users can then be used to inform our prediction.
 
-1. Read the data in the file `FisherIrisDataset.csv` into five parallel arrays
-   called `sepalLength`, `sepalWidth`, `petalLength`, `petalWidth` and `labels`,
-   respectively. There are a total of 120 iris flowers in the file, so your
-   arrays should be sized appropriately.
+In order to identify similar users, we must have some quantitative way to
+determine similarity, i.e., a *similarity measure*. A common way to do this is
+to calculate the absolute difference for each of the movie ratings for two users
+and add these together to compute a total difference measurement. This distance
+measure is known as the [Manhattan
+Distance](https://en.wikipedia.org/wiki/Taxicab_geometry) (a.k.a. Taxicab
+distance).
+
+Take the first two users in the example above. The difference between them is
+calculated as:
+
+```
+  |4.0-3.0| + |4.5-4.0| + |4.0-5.0| + |4.0-4.0| + |3.0-5.0|
+= 1.0 + 0.5 + 1.0 + 0.0 + 2.0
+= 4.5
+```
+
+So we would say that the Manhattan distance between the two users is 4.5. It is
+important to note that in this case, *distance* is the opposite of *similarity*,
+which is what we are really after. So, to find the most similar users, we should
+find the users with that have the least distance between them.
+
+1. Give it a try. Fill in the following table by computing the distance between
+   the three users in the example above, then determine which two users are the
+   most similar. Note, it is not necessary, or meaningful in this case, to
+   compute the distance between a user and themselves, so each of these entries
+   in the table is marked with `---`. You should also note that the Manhattan
+   distance is *symmetric*, i.e., the distance between user *X* and user *Y* is
+   the same as the distance between user *Y* and user *X*, so you only need to
+   compute this distance once and then can fill in both cells in the table.
+
+   ```
+   +---------------+-------------------+-------------------+-------------------+
+   | User          | 0                 | 1                 | 2                 |
+   +---------------+-------------------+-------------------+-------------------+
+   | 0             | ---               |                   |                   |
+   +---------------+-------------------+-------------------+-------------------+
+   | 1             |                   | ---               |                   |
+   +---------------+-------------------+-------------------+-------------------+
+   | 2             |                   |                   | ---               |
+   +---------------+-------------------+-------------------+-------------------+
+   ```
+
+1. **TODO** Read a small file with a single column
+
+   ```vbnet
+   outResults.Clear()
+   outResults.AppendText(totalUsers & " users' ratings were read from the file.")
+   ```
+
+1. **TODO** Read a small file with all columns
+
+1. Read the data in the file `ML-ratings.csv` into five parallel arrays
+   called `movie1`, `movie2`, `movie3`, `movie4` and `movie5`, respectively.
+   There are a total of 22149 users (rows) in the file, so your arrays should be
+   sized appropriately.
 
 1. After reading the data into parallel arrays, output the array values in a
    table formatted as follows:
 
    ```
-   Sample #   Sepal length   Sepal width   Petal length   Petal width        Label
-   --------   ------------   -----------   ------------   -----------   ----------
-        XXX            X.X           X.X            X.X           X.X   XXXXXXXXXX
-        XXX            X.X           X.X            X.X           X.X   XXXXXXXXXX
-          .              .             .              .             .            .
-          .              .             .              .             .            .
-          .              .             .              .             .            .
-   -------------------------------------------------------------------------------
+   User ID   Movie 1   Movie 2   Movie 3   Movie 4   Movie 5
+   -------   -------   -------   -------   -------   -------
+       XXX       X.X       X.X       X.X       X.X       X.X
+       XXX       X.X       X.X       X.X       X.X       X.X
+         .         .         .         .         .         .
+         .         .         .         .         .         .
+         .         .         .         .         .         .
+   ---------------------------------------------------------
    ```
 
    Declare a format string for such a table as follows:
 
    ```vbnet
-   Dim fmtStr As String = "{0,8:000}   {1,12:0.0}   {2,11:0.0}   {3,12:0.0}   " & _
-       "{4,11:0.0}   {5,10}" & vbNewLine
+   Dim fmtStr As String = "{0,7}   {1,7:0.0}   {2,7:0.0}   {3,7:0.0}   " & _
+       "{4,7:0.0}   {5,7:0.0}" & vbNewLine
    ```
 
-1. Use the `InputBox` Visual Basic function to ask the user to input sepal
-   length, sepal width, petal length and petal width values for their new iris
-   sample and assign those values to four variables called `userSepalLength`,
-   `userSepalWidth`, `userPetalLength` and `userPetalWidth`, respectively.
+   which could then be used to format six variables like so:
+
+   ```vbnet
+   String.Format(fmtStr, i, movie1(i), movie2(i), movie3(i), movie4(i), movie5(i))
+   ```
+
+   Thus, in `fmtStr`, we say that there are six *format items*, one for each of
+   the six columns in the table. Each format item is demarked by `{...}`. Within
+   the curly braces, the first number indicates the *value index*, i.e., which
+   value in the line `String.Format(...)` is to formatted. The first value
+   after the format string, `fmtStr` in this case, is considered value 0. So,
+   `{0,7}` is the format item for the value `i`, `{1,7:0.0}` for value
+   `movie1(i)`, and so on. After the value index is the *alignment*, i.e., how
+   wide the formatted column should be, as well as whether it should be left or
+   right justified. So, `{0,7}` indicates that value `i` should be formatted as
+   seven characters wide and right justified. You can see that in this format
+   string, all format items are seven characters wide and right justified.
+   Lastly, following the alignment is the *format specifier*, which indicates
+   out a value should look when formatted. There are many possibilities for a
+   format specifier, so we will not go into the details. Suffice it to say that
+   the `0.0` format specifier in `{1,7:0.0}` means that value `movie1(i)` should
+   be formatted as a decimal value with a single digit following the decimal. If
+   you would like more information on any of these topics, see
+   [this](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting)
+   documentation from Microsoft.
+
+1. **TODO** Compute and display average rating for each movie.
 
 * * *
 D level -- Echo the values from the file to `outResults` in a nicely formatted
@@ -87,28 +156,46 @@ table
 
 * * *
 
-1. Declare another array, called `distances`, that will hold the distance
-   computed between the iris flower sample input by the user, and each of the
-   iris flower samples read from the file `FisherIrisDataset.csv`.
+1. Use the `InputBox` Visual Basic function to ask the user to ratings for movie
+   1, movie 2, movie 3 and movie 4. Assign these values to variables called
+   `queryMovie1`, `queryMovie2`, `queryMovie3` and `queryMovie4`, respectively.
+   These values will represent the ratings for the hypothetical user for whom we
+   are trying to predict a rating for movie 5.
 
-1. After computing the distances between the user's iris flower sample and those
-   in the dataset, output the distances in a table formatted as follows:
+1. Declare another array, called `distances`, that will hold the distance
+   computed between the hypothetical user whose ratings for movies 1 through 4
+   were input in the previous step, and the users whose ratings were read from
+   the file `ML-ratings.csv`.
+
+1. **TODO** Compute distance between user 0 from file and hypothetical user.
+
+1. **TODO** Compute distance between all users and hypothetical user, storing
+   results in `distance` array.
+
+1. After computing the distances between the hypothetical user and those users
+   from the file, output the distances in a table formatted as follows:
 
    ```
-   Sample #   Distance
-   --------   --------
-        XXX        X.X
-        XXX        X.X
-          .          .
-          .          .
-          .          .
-   -------------------
+   User ID   Distance
+   -------   --------
+       XXX        X.X
+       XXX        X.X
+         .          .
+         .          .
+         .          .
+   ------------------
    ```
 
    **NOTE** You should be able to use the value of the `fmtStr` variable from
    above to create an appropriate format string for this problem.
 
-1. Using a `For`-loop, find the minimum value in the `distance` array. Be sure
+* * *
+C level -- Compute and output distances to `outResults` in a nicely formatted.
+
+* * *
+
+1. **TODO** Better description with reference to book on how to find minimum.
+   Using a `For`-loop, find the minimum value in the `distance` array. Be sure
    to keep track of the index where the minimum value appeared. Then, using the
    minimum distance and its corresponding index, make a prediction as to the
    class of the user's iris flower sample. For now, the prediction will be the
@@ -117,29 +204,24 @@ table
    in a message based on the following example:
 
    ```
-   The predicted class for the user's sample is 'versicolor'.
-   This prediction is based on dataset sample #XX which has a computed distance of X.X.
+   The most similar user was user #XXX and the distance calulcated was X.X.
+   The predicated rating for movie 5 is X.X.
    ```
 
-* * *
-C level -- Compute and output distances to `outResults` in a nicely formatted.
-Then make a prediction based on the minimum distance value that was computed.
+1. As you may be able to guess, the simple model of find the dataset sample
+   which is the least different from the user's sample and use its class to
+   predict the class of the user's sample is not very robust, i.e., it is likely
+   to produce incorrect predictions. However, your work up to this point is not
+   for naught. Rather than using just the dataset sample that is least different
+   from the user's sample, we can greatly improve the accuracy of our
+   predictions by looking at the *k* least different dataset samples. However,
+   as it turns out, finding the *k* least different dataset samples is more
+   complicated than find the least different dataset sample, so as before, we
+   will work through it in steps. The basic idea is to sort the `distance` array
+   and then select the first *k* values from the array as the will represent the
+   *k* minimum distances.
 
-* * *
-
-As you may be able to guess, the simple model of find the dataset sample which
-is the least different from the user's sample and use its class to predict the
-class of the user's sample is not very robust, i.e., it is likely to produce
-incorrect predictions. However, your work up to this point is not for naught.
-Rather than using just the dataset sample that is least different from the
-user's sample, we can greatly improve the accuracy of our predictions by looking
-at the *k* least different dataset samples. However, as it turns out, finding
-the *k* least different dataset samples is more complicated than find the least
-different dataset sample, so as before, we will work through it in steps. The
-basic idea is to sort the `distance` array and then select the first *k* values
-from the array as the will represent the *k* minimum distances.
-
-1. To see how this works, we must first sort the `distance` array. To do this,
+   To see how this works, we must first sort the `distance` array. To do this,
    we will rely on a built-in function in Visual Basic, conveniently named
    `Array.Sort`. So, to sort the `distance` array, you would say:
 
@@ -149,6 +231,9 @@ from the array as the will represent the *k* minimum distances.
 
    Output the sorted `distance` array to `outResults` to see that it is in fact
    sorted.
+
+1. **TODO** Have students work on student name problem to see how the two
+   parameter variant of `Array.Sort` can help them.
 
 1. Unfortunately, using the above line of code, after sorting the `distance`
    array we have no way to determine which dataset sample each of the distance
@@ -186,6 +271,7 @@ from the array as the will represent the *k* minimum distances.
    ```
 
 * * *
+Then make a prediction based on the minimum distance value that was computed.
 B level -- Added `sampleNumber` array, sort parallel arrays, and make prediction
 using the minimum distance sample. Then output a table with the *k* minimum
 distance samples.
