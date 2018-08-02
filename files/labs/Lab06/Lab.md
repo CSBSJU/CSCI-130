@@ -1,9 +1,16 @@
 ---
-title: "Using datasets to predict"
+title: "Using datasets to make predictions"
 geometry: margin=1in
 ---
 
-# Part 1
+## Learning objectives
+This exercise is designed to help you learn about (and assess whether you have
+learned about):
+
+* Reading from CSV files into parallel arrays
+* Finding the minimum value in an array
+* Using the `Arrays.sort` function in Visual Basic
+* Using nested loops
 
 ## Background
 These lab exercises use datasets containing information about three different
@@ -43,104 +50,153 @@ the type of cancer in a patient.  Use the algorithm below to develop a program,
 single iris plant from the user, and from those measurements, predict the iris
 variety of that plant.
 
-1. Read the data in files FisherIrisDatasetValues.csv &
-   FisherIrisDatasetLabels.csv into a matrix called dataValues and a column
-   vector called dataLabels, respectively:
+1. Read the data in the file `FisherIrisDataset.csv` into five parallel arrays
+   called `sepalLength`, `sepalWidth`, `petalLength`, `petalWidth` and `labels`,
+   respectively. There are a total of 120 iris flowers in the file, so your
+   arrays should be sized appropriately.
 
-   ```matlab
-   dataValues =  impordata(‘FisherIrisDatasetValues.csv’,’,’)
-   dataLabels=  impordata(‘FisherIrisDatasetLabels.csv’,’,’)
+1. After reading the data into parallel arrays, output the array values in a
+   table formatted as follows:
+
+   ```
+   Sample #   Sepal length   Sepal width   Petal length   Petal width        Label
+   --------   ------------   -----------   ------------   -----------   ----------
+        XXX            X.X           X.X            X.X           X.X   XXXXXXXXXX
+        XXX            X.X           X.X            X.X           X.X   XXXXXXXXXX
+          .              .             .              .             .            .
+          .              .             .              .             .            .
+          .              .             .              .             .            .
+   -------------------------------------------------------------------------------
    ```
 
-   Now matrix dataValues contains the sepal length, sepal width, petal length
-   and petal width measurements for 120 iris flowers and column vector
-   dataLabels contains the corresponding flower type.
+   Declare a format string for such a table as follows:
 
-1. For clarity, assign each of the dataValues matrix columns to a column vector
-   with meaningful names:
-
-   ```matlab
-   sepalLength = dataValues(:,1);
+   ```vbnet
+   Dim fmtStr As String = "{0,8:000}   {1,12:0.0}   {2,11:0.0}   {3,12:0.0}   " & _
+       "{4,11:0.0}   {5,10}" & vbNewLine
    ```
 
-1. Determine and display (in a nice message) the range of values for each of the
-   four measurements of the iris plants and assign each a variable name:
+1. Use the `InputBox` Visual Basic function to ask the user to input sepal
+   length, sepal width, petal length and petal width values for their new iris
+   sample and assign those values to four variables called `userSepalLength`,
+   `userSepalWidth`, `userPetalLength` and `userPetalWidth`, respectively.
 
-   ```matlab
-   sepalLengthRange=max(sepalLength)-min(sepalLength);
+* * *
+D level -- Echo the values from the file to `outResults` in a nicely formatted
+table
+
+* * *
+
+1. Declare another array, called `distances`, that will hold the distance
+   computed between the iris flower sample input by the user, and each of the
+   iris flower samples read from the file `FisherIrisDataset.csv`.
+
+1. After computing the distances between the user's iris flower sample and those
+   in the dataset, output the distances in a table formatted as follows:
+
+   ```
+   Sample #   Distance
+   --------   --------
+        XXX        X.X
+        XXX        X.X
+          .          .
+          .          .
+          .          .
+   -------------------
    ```
 
-1. Use the input MATLAB function to ask the user to input sepal length, sepal
-   width, petal length and petal width values for their new iris sample and
-   assign those values to single a vector called newSample.
+   **NOTE** You should be able to use the value of the `fmtStr` variable from
+   above to create an appropriate format string for this problem.
 
-1. Create 4 column vectors to hold the differences between the measurements from
-   each of the elements of the dataset and the four measurements in vector
-   newSample.
+1. Using a `For`-loop, find the minimum value in the `distance` array. Be sure
+   to keep track of the index where the minimum value appeared. Then, using the
+   minimum distance and its corresponding index, make a prediction as to the
+   class of the user's iris flower sample. For now, the prediction will be the
+   label of the iris flower sample from the file that is the least different
+   (i.e., minimum distance) from the user's sample. Output the predicted class
+   in a message based on the following example:
 
-   ```matlab
-   sepalLengthDifferences = abs((sepalLength - sepalLengthFornewSample)/ sepalLengthRange)
+   ```
+   The predicted class for the user's sample is 'versicolor'.
+   This prediction is based on dataset sample #XX which has a computed distance of X.X.
    ```
 
-1. Add up the four column vectors to get a totalDifferences vector
+* * *
+C level -- Compute and output distances to `outResults` in a nicely formatted.
+Then make a prediction based on the minimum distance value that was computed.
 
-1. Save a version of the totalDifferences vector sorted by closest (i.e.
-   smallest) differences (ascending order). Use the sort MATLAB function for
-   this purpose.
+* * *
 
-1. Do the same sort again, and use the feature of sort that allows you to save
-   the indices of the original version of the vector. For example, if V is a
-   vector, then [sortedV,indexV] = sort(V) would sort V and store it in vector
-   sortedV and would create an index vector called indexV that contains the old
-   location (i.e. in V) of each of the items in sortedV. Try the following in
-   MATLAB before you proceed:
+As you may be able to guess, the simple model of find the dataset sample which
+is the least different from the user's sample and use its class to predict the
+class of the user's sample is not very robust, i.e., it is likely to produce
+incorrect predictions. However, your work up to this point is not for naught.
+Rather than using just the dataset sample that is least different from the
+user's sample, we can greatly improve the accuracy of our predictions by looking
+at the *k* least different dataset samples. However, as it turns out, finding
+the *k* least different dataset samples is more complicated than find the least
+different dataset sample, so as before, we will work through it in steps. The
+basic idea is to sort the `distance` array and then select the first *k* values
+from the array as the will represent the *k* minimum distances.
 
-   ```matlab
-   V = [ 8; 2; 5; 10; -1]
-   [sortedV,indexV] = sort(V)
-   %Now we can use indexV to easily rearrange any other vector having the same
-   %dimensions as V, in V’s order. Try the following example.
-   Z = [ 1; 2; 3; 4; 5] 
-   Z(indexV,:)
+1. To see how this works, we must first sort the `distance` array. To do this,
+   we will rely on a built-in function in Visual Basic, conveniently named
+   `Array.Sort`. So, to sort the `distance` array, you would say:
+
+   ```vbnet
+   Array.Sort(distance)
    ```
 
-1. Use the indexV vector from step #8 to create a vector of the iris types
-   column vector (i.e., dataLabels) sorted by closest differences.
+   Output the sorted `distance` array to `outResults` to see that it is in fact
+   sorted.
 
-   ```matlab
-   dataLabelsSorted = dataLabels(indexFromStep8,:);
+1. Unfortunately, using the above line of code, after sorting the `distance`
+   array we have no way to determine which dataset sample each of the distance
+   values belonged to. Fortunately, with a small modification, we can have
+   `Array.Sort` produce a second array which stores the sample number for each
+   value in the sorted `distance` array. To do this, we must supply a second
+   array to the `Array.Sort` function. We will call this array `sampleNumber`
+   and it will contain the sample number that is associated with each distance
+   value.
+
+   ```vbnet
+   Array.Sort(distance, sampleNumber)
    ```
 
-1. Ask the user to input an integer, k, that will be used to choose the k
-   closest matches to your sample
+   Now we can find out which dataset sample belongs to each distance in the
+   `distance` array like so:
 
-1. Create another vector from the sortedIrisTypes that holds just the first k
-   iris types and then use a for-loop to print a nicely labeled table of the top
-   k differences and the associated iris type.
+   ```vbnet
+   outResults.AppendText("The distance between sample #" & sampleNumber(0) & _
+       " and the user's sample is " & distance(0))
+   ```
+
+1. Reproduce the prediction from the previous part, i.e., predict based on the
+   class of the dataset sample that is the least different from the user's
+   sample. This time however, use the sorted array instead of computing the
+   minimum distance in a loop. Output your prediction using the same statements
+   as above.
+
+1. Ask the user to input an integer, *k*, that will be used to choose the *k*
+   closest matches to the user's sample. Using the sorted `dataset` array and
+   the `sampleNumber` array, output the *k* least different dataset samples in a
+   table formatted as follows:
+
+   ```
+   ```
+
+* * *
+B level -- Added `sampleNumber` array, sort parallel arrays, and make prediction
+using the minimum distance sample. Then output a table with the *k* minimum
+distance samples.
+
+* * *
 
 1. Calculate the majority type in the top k and display your prediction. PS: you
    need to find out the count of each type of flower which exits in the top k.
    The type associated with the largest count would be your final prediction.
 
-# Part 2
-Assuming you have your prediction system working from part 1, make a copy of it
-called Lab9Part2_predictionAccuracy.m, and then modify it as needed so that your
-program will read in the file OtherIrisSampleValues.csv and use the measurements
-contained in it to predict the iris type for each sample. In other words, now
-the user doesn’t input information for any samples; instead, you need to repeat
-your predictions for all samples in files OtherIrisSampleValues.csv &
-OtherIrisSampleLabels.csv into a matrix and a column vector, respectively. Note
-that file OtherIrisSampleLabels.csv already contains the answer as to what type
-of iris the measurements are taken from, but the purpose of this exercise is to
-see how accurately the prediction system is that you built in part 1. Your
-program should use a loop to compute a predicted iris type for each of the 30
-samples and then report what percentage of those samples you predicted
-accurately.
-
-# Part 3
-Run your Lab9Part2_predictionAccuracy.m program with several different values of
-k and report what you find.
-
+\newpage
 * * *
 
 Based on Lab09 from CSCI 140.
