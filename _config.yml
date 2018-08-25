@@ -11,6 +11,11 @@ canvas:
   include:
     - files/slides/**/*-final.pdf
 
+
+# Conversion
+markdown:    kramdown
+highlighter: rouge
+
 # Exclude the following files/folders from processing. Jekyll currently gives
 # exclude precedence over include, so list files/folders to be excluded here.
 exclude:
