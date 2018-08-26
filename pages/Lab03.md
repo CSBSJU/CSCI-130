@@ -149,7 +149,7 @@ title: "Lab03"
 
    ```vb
    Public Class frmLab02
-       'A button that terminates the VB project
+       ' A button that terminates the VB project
        Private Sub btnQuit(sender As Object, e As EventArgs) Handles btnQuit.Click
 
        End
@@ -173,13 +173,13 @@ title: "Lab03"
    Option Explicit On
 
    Public Class frmLab02
-       'A button that computes the monthly net pay given the annual gross pay
+       ' A button that computes the monthly net pay given the annual gross pay
        ' and the monthly deductions
-       Private Sub btnComputeNetMonthlyPay_Click(sender As Object, e As EventArgs) ...
+       Private Sub btnComputeNetMonthlyPay_Click(sender As Object, e As EventArgs) ' ...
 
        End
 
-       'A button that terminates the VB project
+       ' A button that terminates the VB project
        Private Sub btnQuit(sender As Object, e As EventArgs) Handles btnQuit.Click
 
        End
