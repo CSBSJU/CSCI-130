@@ -2,7 +2,7 @@
 ---
 
 ## Preface
-The CSCI 239 Syllabus serves to set forth what is expected during the semester
+The CSCI 130 Syllabus serves to set forth what is expected during the semester
 from the instructor and the students and to guide the behaviors of both parties.
 More specifically, this syllabus delineates the responsibilities of students and
 of the instructor for various tasks, including attendance, assignments,
@@ -13,39 +13,27 @@ assignment---will be handled.[^1]<sup>,</sup>[^2]
 
 ## Introduction
 ### Purpose
-While most people understand that computing depends at its core on mathematics;
-most do not understand the peculiar nature of the mathematics underlying
-computing. Modern computers are digital; that is, they work with distinct values
-that can be represented by (binary) integer codes. The mathematics that deals
-with the manipulation of distinct or discrete values is called *discrete
-mathematics*.
+This course is an introduction to computing, both in theory and in practice. We
+will examine questions of how computers work, what they are good at doing, what
+they don't do well, why they sometimes don't work as expected, and how they can
+best be used. We will consider both the how and the why of problem solving using
+a computer. Students will gain insights into the structure and use of computers
+that will serve them however they may decide to use computers in the future.
+Upon successful completion of the course, students will be able to:
 
-This courses approaches discrete mathematics from a point of view that is
-practical for computer science students. We will cover logic, proof, sets,
-relations, functions, recursion and induction, counting principles, and
-probability, all with an eye to how they are used throughout computing. We will
-use functional programming in Haskell as a way to visualize and demonstrate
-these mathematical structures.
-
-To meet the objectives for this course, you will be able:
-
-* to create and explain the steps of simple logical proofs
-* to find the solution to simple recurrence relations
-* to apply induction and demonstrate the correctness of solutions to a variety
-  of computing problems
-* to think clearly and critically about probabilistic issues in computing
-* to write medium scale programs in a modern functional language (Haskell)
+* understand and describe the basic components and workings of a computer
+  system,
+* demonstrate awareness of the capabilities and limitations of computers,
+* design, read, write and understand Visual Basic programs, and
+* design and implement solutions to simple spreadsheet and database problems
 
 ### Requirements
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119].
 
-Students are REQUIRED to have access to the zyBook, [Discrete
-Mathematics](https://learn.zybooks.com/zybook/CSB239IversonFall2018) by Irani et
-al. You SHOULD read the instructions in the [How to Use
-zyBooks](/courses/10454/assignments/89347) assignment for directions about
-obtaining access to the book, if you do not have it already.
+Students are REQUIRED to have access to the textbook, [Computer Concepts and
+Applications]({% file textbook.pdf %}) by Herzfeld and Miller et al.
 
 ### Terminology
 class meeting
@@ -77,10 +65,11 @@ open note
 
 ## Course policies
 ### Attendance
-Attendance is REQUIRED at all class meetings. Each unexcused absence MAY result
-in a 1% reduction in the final grade for the course. Students who have more than
-three unexcused absences MAY receive a failing grade for the course. Habitual
-lateness in attending class meetings MAY be treated as unexcused absence.
+Attendance is REQUIRED at all class and lab meetings. Each unexcused absence MAY
+result in a 1% reduction in the final grade for the course. Students who have
+more than three unexcused absences MAY receive a failing grade for the course.
+Habitual lateness in attending class or lab meetings MAY be treated as unexcused
+absence.
 
 ### Assignments
 There will be several assignments during the semester including: readings,
@@ -90,8 +79,29 @@ to understand the material and come up with solutions. However, all work
 submitted for a grade MUST be your own original work. Late assignment
 submissions MAY NOT be accepted.
 
+### Labs
+This is a designated Natural Science course in the Common Curriculum, and like
+all such courses, it has a required laboratory component. There will be two
+scheduled 80-minute labs each week throughout the semester. See
+[Attendance](#attendance) above for policies regarding attendance.
+
+Students SHOULD come prepared to the lab by studying class material and
+completing previous lab work ahead of time. Each week, labs will be due at the
+end of the lab meeting scheduled for Thursday. Late submissions will NOT be
+accepted and will receive a grade of zero instead.
+
+Most lab periods will have a set of lab exercises to complete for that lab; a
+few of the lab periods will be dedicated to the programming project instead of
+the usual lab structure.
+
+### Project
+There will be one project during the course for which students will design
+their own application and write up complete documentation for that application.
+While  labs are intended to be collaborative in nature, projects are to be your
+own work — i.e., INDIVIDUAL OR ASSIGNED GROUP'S WORK.
+
 ### Examinations
-There will be three in-class exams and one cumulative final exam. All exams are
+There will be four in-class exams and one cumulative final exam. All exams are
 closed book/open note. All exam times are documented on the [Canvas calendar]
 for this course; you are responsible for keeping those times clear in your
 schedule. Students MAY be allowed to make up missed exams in the case of an
@@ -100,7 +110,7 @@ excused absence and at the discretion of the instructor.
 ### Emails / Outlook meeting invitations
 I welcome emails and Outlook meeting invitations from students. However, you
 SHOULD use the following guidelines when sending either to me:
-* start the subject line with CS239, CS 239, CSCI239, or CSCI 239
+* start the subject line with CS130, CS 130, CSCI130, or CSCI 130
 * provide a concise description in subject line
 * use a salutation like, "Good afternoon Prof. Iverson" or just "Prof. Iverson"
 * conclude your message with a signature like, "Sincerely, Jeremy" or even as
@@ -114,10 +124,23 @@ or for grievous infractions, at all.
 ### Evaluation
 The final grade for the course will be based on the percentages shown below.
 
-| Assignments and participation | 18% |
-| Labs                          | 22% |
-| In-class exams                | 45% |
-| Final exam                    | 15% |
+| Assignments and participation |  5% |
+| Labs                          | 27% |
+| Project                       |  8% |
+| In-class exams                | 40% |
+| Final exam                    | 20% |
+
+For calculating the final grade, the 40% associated with *In-class exams* will
+be distributed as follows:
+
+* 5% on lowest in-class exam
+* 15% on highest in-class exam
+* 10% on the other in-class exams
+
+Unfortunately, at the time this was written, Canvas does not support this type
+of grade calculation, so this will be done by the instructor prior to final
+grade submission. If you have questions regarding your grade in the course,
+please feel free to inquire with your instructor.
 
 Grading is mainly based on the performance of each student compared to the class
 as a whole. In general, the following guidelines are followed except in certain
@@ -127,14 +150,14 @@ required work in a timely manner, or evident lack of understanding of core
 material as illustrated by exam scores (e.g., failing all exams MAY result in an
 F grade regardless of your total final score).
 
-| A  | &ge;94% |
-| AB | &ge;87% |
-| B  | &ge;84% |
-| BC | &ge;77% |
-| C  | &ge;74% |
-| CD | &ge;67% |
-| D  | &ge;64% |
-| F  | &lt;64% |
+| A  | &ge;92% |
+| AB | &ge;88% |
+| B  | &ge;82% |
+| BC | &ge;78% |
+| C  | &ge;72% |
+| CD | &ge;68% |
+| D  | &ge;60% |
+| F  | &lt;60% |
 
 ## Inclusivity
 Students in this class are encouraged to speak up and participate in-class and
