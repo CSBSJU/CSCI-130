@@ -22,7 +22,7 @@ title: "Lab03"
 1. Get a copy of this lab folder from the N: network drive
 
    1. Go to folder `N:\Classes\CS130\labs` and copy and paste the folder for
-      today’s lab (i.e., Lab03) to `M:\CS130\labs`
+      today's lab (i.e., Lab03) to `M:\CS130\labs`
 
    1. You may now work locally by opening the write-up from within the copied
       folder. (The write-up is the current document you are reading.)
@@ -223,7 +223,7 @@ title: "Lab03"
      netMonthlyPay = grossAnnualPay / 12 - monthlyDeductions
      ```
 
-1. Now that we’ve computed the value for variable `netMonthlyPay`, we’re ready
+1. Now that we've computed the value for variable `netMonthlyPay`, we're ready
    to display its value in our `outResults` RichTextBox object. We can use the
    `outResults.Text = netMonthlyPay` to do this. Add the following line of code:
    outResults.Text = netMonthlyPay to your code right after the line that
@@ -237,7 +237,7 @@ title: "Lab03"
    sign and limit the number of decimal places to 2. Function
    `FormatCurrency(_value to be formatted, number of desired decimal places)`
    can help! Change statement `outResults.Text = netMonthlyPay` to
-   `outResults.Text  = FormatCurrency(netMonthlyPay, 2))` (we’re telling VB to
+   `outResults.Text  = FormatCurrency(netMonthlyPay, 2))` (we're telling VB to
    display the value of variable `netMonthlyPay` with exactly two decimal
    places).
 
@@ -247,10 +247,10 @@ title: "Lab03"
    1, 3 and 4 to see what happens. By the way, omitting this second parameter
    altogether defaults to 2 decimal places which is what I am using henceforth.
 
-1. Eventually, we’d like to be able to display a more meaningful message such as
+1. Eventually, we'd like to be able to display a more meaningful message such as
    **Your monthly net pay is $8,044.23.** instead of just a meaningless
    number! In VB, text that needs to be displayed literally must go between
-   double quotes. Let’s replace
+   double quotes. Let's replace
 
    ```vb
    outResults.Text = FormatCurrency(netMonthlyPay))
@@ -265,7 +265,7 @@ title: "Lab03"
    meaningful message? The reason this happened is because, even though the text
    before and after `FormatCurrency(netMonthlyPay)` needs be enclosed between
    double-quotes, variables and functions should not (without being interpreted
-   as literal text)! Furthermore, VB won’t accept something like the following
+   as literal text)! Furthermore, VB won't accept something like the following
    because we are required to explicitly concatenate the literal text and the
    variables to be displayed. Bummer!
 
@@ -347,12 +347,12 @@ declare and use `frmtStr` is below.
 ' the format for each is described by two comma-separated numbers enclosed
 ' between {x,y} where x describes which string is being formatted (0 is
 ' first string, 1 is second string, etc.) and y represents the number of
-' characters allocated to the string (in the following example, we’re using
-' 10 characters). Note that a ' negative value indicates align left
+' characters allocated to the string (in the following example, we're using
+' 10 characters). Note that a negative value indicates align left
 Dim frmtStr As String = "{0,-10}{1,10}" & vbNewLine 
 
 ' using frmtStr in a subroutine later in the code
-' In the first example, we’re displaying string “CSCI 130” in 10 characters
+' In the first example, we're displaying string “CSCI 130” in 10 characters
 ' left-justified and string "1:00pm" also in 10 characters but
 ' right-justified
 outResults.AppendText(String.Format(frmtStr, "CSCI 130", "1:00pm"))

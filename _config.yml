@@ -11,9 +11,7 @@ canvas:
   include:
     - files/slides/**/*-final.pdf
 
-
-# Conversion
-markdown:    kramdown
+# Syntax highlighting
 highlighter: rouge
 
 # Exclude the following files/folders from processing. Jekyll currently gives
