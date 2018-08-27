@@ -1,40 +1,68 @@
-topics
 ├── welcome
+│   │
 │   └── specific acknowledgment for first year students
+│
 ├── logistics
+│   │
 │   └── Canvas
+│       │
 │       ├── show instructor resources page
+│       │   │
 │       │   └── my home page
+│       │
 │       └── discuss office hours, mine, John's and TAs'
+│           │
 │           └── discuss John's role
+│
 ├── word cloud
+│   │
 │   └── group activity -- identify words you recognize, give them definitions if
 │       you can
+│
 ├── syllabus
+│   │
 │   ├── what is the weird format (describe an RFC)?
+│   │   │
 │   │   └── emphasize that MAY does not mean not likely it means that I reserve
 │   │       the right not to enforce, but most likely will
+│   │
 │   ├── attendance
+│   │   │
 │   │   └── repeated tardiness will be considered absence
+│   │
 │   ├── labs
+│   │   │
 │   │   ├── due dates
+│   │   │
 │   │   └── expectations
+│   │       │
 │   │       ├── explain the intention of tuesday labs due on thursday --
 │   │       │   opportunity for student to recognize lack of understanding
+│   │       │
 │   │       ├── no devices allowed during lab, this includes headphones / music
+│   │       │
 │   │       └── no leaving early, unless done
+│   │
 │   ├── project
+│   │
 │   ├── exams
+│   │
 │   ├── email and meetings
+│   │
 │   └── inclusivity
+│       │
 │       ├── respect for the dignity of each person is key
+│       │
 │       ├── please make me aware of any disrespect in the class, even if it is
 │       │   from me, if you are not comfortable telling me, tell John, or Dr.
 │       │   Imad Rahal (dept. chair), or someone else who can contact me and
 │       │   let me know.
+│       │
 │       └── all questions are welcomed and encouraged, never feel that it would
 │           be better not to ask
+│    
 └── activities
+    │
     └── group discussion [DKC word problems]
-        ├── answer in small groups
-        └── solve on the board
+        │
+        └── answer in small groups / solve on the board
