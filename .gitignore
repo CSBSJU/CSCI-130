@@ -327,3 +327,9 @@ ASALocalRun/
 
 # MFractors (Xamarin productivity tool) working folder
 .mfractor/
+
+# canvas-workflow
+.bundle
+vendor
+Gemfile*
+_site

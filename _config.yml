@@ -6,10 +6,8 @@ canvas:
   # precedence to include over exclude, so you can selectively include
   # files/folders that exist in excluded directories.
   exclude:
-    - files/slides
+    - files/lectures/**/notes.txt
   # Selectively include files/folders that have been previously excluded.
-  include:
-    - files/slides/**/*-final.pdf
 
 # Syntax highlighting
 highlighter: rouge
