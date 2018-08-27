@@ -8,16 +8,16 @@ title: "Instructor resources"
 | **Instructor(s):** | Jeremy Iverson (<jiverson002@csbsju.edu>). PENGL 213, Ph: (320) 363-3083          |
 |                    | Homepage: <http://www.users.csbsju.edu/~jiverson002>                              |
 |                    | Office Hours:                                                                     |
-|                    | &nbsp;&nbsp;&nbsp;M 3:00 pm - 4:00 pm                                             |
-|                    | &nbsp;&nbsp;&nbsp;T 11:00 am - 12:00 pm                                           |
+|                    | &nbsp;&nbsp;&nbsp;M 12:30 pm - 1:30 pm                                            |
+|                    | &nbsp;&nbsp;&nbsp;R 11:00 am - 12:00 pm                                           |
 |--------------------+-----------------------------------------------------------------------------------|
 |                    |                                                                                   |
 |--------------------+-----------------------------------------------------------------------------------|
 |                    | John Miller (<jmilller@csbsju.edu>). PENGL 215, Ph: (320) 363-3155                |
 |                    | Homepage: <http://www.users.csbsju.edu/~jmiller>                                  |
 |                    | Office Hours:                                                                     |
-|                    | &nbsp;&nbsp;&nbsp;M 10:20 am - 11:15 am                                           |
-|                    | &nbsp;&nbsp;&nbsp;F 10:20 am - 11:15 am                                           |
+|                    | &nbsp;&nbsp;&nbsp;T 9:10 am - 10:05 am                                            |
+|                    | &nbsp;&nbsp;&nbsp;W 10:20 am - 11:15 am                                           |
 |--------------------+-----------------------------------------------------------------------------------|
 |                    |                                                                                   |
 |--------------------+-----------------------------------------------------------------------------------|
