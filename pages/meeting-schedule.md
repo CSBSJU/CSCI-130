@@ -40,7 +40,7 @@ title: "Meeting schedule"
   <tbody>
     <tr>
       <td rowspan="0" style="vertical-align:top">27-Aug</td>
-      <td><a href="{% file lectures/CL01/slides.pptx %}">{% icon ms-ppt %}</a></td>
+      <td><a href="{% file lectures/00/slides.pptx %}">{% icon ms-ppt %}</a></td>
       <td>CSCI 130: Introduction</td>
       <td></td>
     </tr>
@@ -50,7 +50,7 @@ title: "Meeting schedule"
       <td></td>
     </tr>
     <tr>
-      <td></td>
+      <td><a href="{% file lectures/01/slides.pptx %}">{% icon ms-ppt %}</a></td>
       <td>Algorithmic thinking: Introduction</td>
       <td>1.1&ndash;1.5</td>
     </tr>
