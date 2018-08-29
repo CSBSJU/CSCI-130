@@ -23,7 +23,7 @@ title: "Meeting schedule"
       <td>&nbsp;link to a slide deck</td>
       <td></td>
       <td style="text-align: right">{% icon zipped %}</td>
-      <td>&nbsp;link to a starter code</td>
+      <td>&nbsp;link to starter code</td>
     </tr>
   </tbody>
 </table>
