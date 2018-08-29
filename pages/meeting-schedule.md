@@ -62,7 +62,7 @@ title: "Meeting schedule"
     <tr>
       <td></td>
       <td>Algorithmic thinking: flowcharts in RAPTOR</td>
-      <td><a href="{% file RAPTOR-Introduction.docx %}">{% icon ms-word %}</a> <a href="{% file RAPTOR-Graphics.docx %}">{% icon ms-word %}</a></td>
+      <td><a href="{% file readings/RAPTOR-Introduction.docx %}">{% icon ms-word %}</a> <a href="{% file readings/RAPTOR-Graphics.docx %}">{% icon ms-word %}</a></td>
     </tr>
   </tbody>
   <thead>
@@ -78,7 +78,7 @@ title: "Meeting schedule"
       <td rowspan="0" style="vertical-align:top">03-Sep</td>
       <td></td>
       <td>Algorithmic thinking: decisions in RAPTOR</td>
-      <td><a href="{% file RAPTOR-Control.docx %}">{% icon ms-word %}</a> <em>(w/o loops)</em></td>
+      <td><a href="{% file readings/RAPTOR-Control.docx %}">{% icon ms-word %}</a> <em>(w/o loops)</em></td>
     </tr>
     <tr>
       <td></td>
@@ -88,7 +88,7 @@ title: "Meeting schedule"
     <tr>
       <td></td>
       <td>Algorithmic thinking: loops in RAPTOR</td>
-      <td><a href="{% file RAPTOR-Control.docx %}">{% icon ms-word %}</a> <em>(w/ loops)</em></td>
+      <td><a href="{% file readings/RAPTOR-Control.docx %}">{% icon ms-word %}</a> <em>(w/ loops)</em></td>
     </tr>
     <tr>
       <td></td>
