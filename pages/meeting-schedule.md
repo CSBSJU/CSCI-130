@@ -4,8 +4,8 @@ title: "Meeting schedule"
 
 <table>
   <thead>
-    <th style="text-align:right">Legend</th>
     <th></th>
+    <th>Link legend</th>
     <th style="width:20px"></th>
     <th></th>
     <th></th>
@@ -13,17 +13,21 @@ title: "Meeting schedule"
   <tbody>
     <tr>
       <td style="text-align: right">{% icon ms-word %}</td>
-      <td>&nbsp;link to a reading</td>
+      <td>&nbsp;reading</td>
       <td></td>
       <td style="text-align: right">{% icon edit %}</td>
-      <td>&nbsp;link to a lab write-up</td>
+      <td>&nbsp;lab write-up</td>
     </tr>
     <tr>
       <td style="text-align: right">{% icon ms-ppt %}</td>
-      <td>&nbsp;link to a slide deck</td>
+      <td>&nbsp;slide deck</td>
       <td></td>
       <td style="text-align: right">{% icon zipped %}</td>
-      <td>&nbsp;link to starter code</td>
+      <td>&nbsp;starter code</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">{% icon video %}</td>
+      <td>&nbsp;video to watch</td>
     </tr>
   </tbody>
 </table>
@@ -62,7 +66,7 @@ title: "Meeting schedule"
     <tr>
       <td></td>
       <td>Algorithmic thinking: flowcharts in RAPTOR</td>
-      <td><a href="{% file readings/RAPTOR-Introduction.docx %}">{% icon ms-word %}</a> <a href="{% file readings/RAPTOR-Graphics.docx %}">{% icon ms-word %}</a></td>
+      <td><a class="inline_disabled" href="https://www.youtube.com/watch?v=ZcAALK3movs">{% icon video %}</a> <a class="inline_disabled" href="https://www.youtube.com/watch?v=eEoxssLPvkQ">{% icon video %}</a></td>
     </tr>
   </tbody>
   <thead>
@@ -78,7 +82,7 @@ title: "Meeting schedule"
       <td rowspan="0" style="vertical-align:top">03-Sep</td>
       <td></td>
       <td>Algorithmic thinking: decisions in RAPTOR</td>
-      <td><a href="{% file readings/RAPTOR-Control.docx %}">{% icon ms-word %}</a> <em>(w/o loops)</em></td>
+      <td><a href="{% file readings/RAPTOR-Introduction.docx %}">{% icon ms-word %}</a> <a href="{% file readings/RAPTOR-Graphics.docx %}">{% icon ms-word %}</a> <a href="{% file readings/RAPTOR-Control.docx %}">{% icon ms-word %}</a> <em>(w/o loops)</em></td>
     </tr>
     <tr>
       <td></td>
