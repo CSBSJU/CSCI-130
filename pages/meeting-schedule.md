@@ -32,7 +32,7 @@ title: "Meeting schedule"
   <thead>
     <tr class="ic-Table__row--bg-neutral">
       <th style="width:100px">Week 1</th>
-      <th style="width:20px"></th>
+      <th style="width:40px"></th>
       <th style="width:50%">Topic</th>
       <th>Readings</th>
     </tr>
@@ -55,7 +55,7 @@ title: "Meeting schedule"
       <td>1.1&ndash;1.5</td>
     </tr>
     <tr>
-      <td><a href="{% file labs/Lab01/Lab.pdf %}">{% icon edit %}</a></td>
+      <td><a href="https://www.users.csbsju.edu/~csweb/CS130/Labs/Lab01_Intro_Activities/Lab01_MappingDrivesAndRoboticsExercises_F18_130.pdf">{% icon edit %}</a></td>
       <td>Lab 01</td>
       <td></td>
     </tr>
