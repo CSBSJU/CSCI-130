@@ -33,7 +33,7 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 interpreted as described in [RFC 2119].
 
 Students are REQUIRED to have access to the textbook, [Computer Concepts and
-Applications]({% file textbook.pdf %}) by Herzfeld and Miller et al.
+Applications]({% file readings/textbook.pdf %}) by Herzfeld and Miller et al.
 
 ### Terminology
 class meeting

@@ -51,7 +51,7 @@ title: "Meeting schedule"
     </tr>
     <tr>
       <td><a href="{% file lectures/01/slides.pptx %}">{% icon ms-ppt %}</a></td>
-      <td>Algorithmic thinking: Introduction</td>
+      <td>Algorithmic thinking: introduction</td>
       <td>1.1&ndash;1.5</td>
     </tr>
     <tr>
