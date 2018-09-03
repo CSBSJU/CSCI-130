@@ -64,7 +64,7 @@ title: "Meeting schedule"
       <td></td>
     </tr>
     <tr>
-      <td></td>
+      <td><a href="{% file lectures/02/slides.pptx %}">{% icon ms-ppt %}</a> <a href="{% file lectures/02/cashRegister.rap %}">{% icon zipped %}</a></td>
       <td>Algorithmic thinking: flowcharts in RAPTOR</td>
       <td><a class="inline_disabled" href="https://www.youtube.com/watch?v=ZcAALK3movs">{% icon video %}</a> <a class="inline_disabled" href="https://www.youtube.com/watch?v=eEoxssLPvkQ">{% icon video %}</a></td>
     </tr>
@@ -80,9 +80,9 @@ title: "Meeting schedule"
   <tbody>
     <tr>
       <td rowspan="0" style="vertical-align:top">03-Sep</td>
-      <td></td>
-      <td>Algorithmic thinking: decisions in RAPTOR</td>
-      <td><a href="{% file readings/RAPTOR-Introduction.docx %}">{% icon ms-word %}</a> <a href="{% file readings/RAPTOR-Graphics.docx %}">{% icon ms-word %}</a> <a href="{% file readings/RAPTOR-Control.docx %}">{% icon ms-word %}</a> <em>(w/o loops)</em></td>
+      <td><a href="{% file lectures/03/slides.pptx %}">{% icon ms-ppt %}</a> <a href="{% file lectures/03/Code.zip %}">{% icon zipped %}</a></td>
+      <td>Algorithmic thinking: graphics and decisions in RAPTOR</td>
+      <td><a class="inline_disabled" href="https://www.youtube.com/watch?v=TW1rNIFzV-8">{% icon video %}</a> <a class="inline_disabled" href="https://www.youtube.com/watch?v=vt7nyzxxylY">{% icon video %}</a></td>
     </tr>
     <tr>
       <td></td>
@@ -92,7 +92,7 @@ title: "Meeting schedule"
     <tr>
       <td></td>
       <td>Algorithmic thinking: loops in RAPTOR</td>
-      <td><a href="{% file readings/RAPTOR-Control.docx %}">{% icon ms-word %}</a> <em>(w/ loops)</em></td>
+      <td><a class="inline_disabled" href="https://www.youtube.com/watch?v=8Qx2w2CDKrk">{% icon video %}</a> <a class="inline_disabled" href="https://www.youtube.com/watch?v=_BTRJjFZY2Y">{% icon video %}</a></td>
     </tr>
     <tr>
       <td></td>

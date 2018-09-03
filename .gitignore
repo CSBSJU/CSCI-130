@@ -330,6 +330,7 @@ ASALocalRun/
 
 # canvas-workflow
 .bundle
+.jekyll-metadata
 vendor
 Gemfile*
 _site
