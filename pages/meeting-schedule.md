@@ -90,7 +90,7 @@ title: "Meeting schedule"
       <td></td>
     </tr>
     <tr>
-      <td></td>
+      <td><a href="{% file lectures/03/Code.zip %}">{% icon zipped %}</a></td>
       <td>Algorithmic thinking: loops in RAPTOR</td>
       <td><a class="inline_disabled" href="https://www.youtube.com/watch?v=8Qx2w2CDKrk">{% icon video %}</a> <a class="inline_disabled" href="https://www.youtube.com/watch?v=_BTRJjFZY2Y">{% icon video %}</a></td>
     </tr>
