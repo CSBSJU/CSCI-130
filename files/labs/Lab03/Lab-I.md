@@ -80,7 +80,7 @@ You may now work locally by opening the write-up from within the copied folder.
    \BEGIN{Warning}
    Your program should behave identically to the solution which can be run by
    double-clicking the file `StraightforwardProgram_Part2.exe` found in the
-   `Solutions` folder inside of your lab folder.
+   `Executables` folder inside of your lab folder.
 
    When done, save and close project `StraightforwardProgram_Part2`.
    \END{Warning}
@@ -137,7 +137,7 @@ Checkpoint 1 (30/100): A successful `StraightforwardProgram_Part2` program:
    \BEGIN{Warning}
    Your program should behave identically to the solution which can be run by
    double-clicking the file `VideoRentalStore_Part2.exe` found in the
-   `Solutions` folder inside of your lab folder.
+   `Executables` folder inside of your lab folder.
 
    When done, save and close project `VideoRentalStore_Part2`.
    \END{Warning}
@@ -188,7 +188,7 @@ Checkpoint 1 (30/100): A successful `StraightforwardProgram_Part2` program:
    \BEGIN{Warning}
    Your program should behave identically to the solution which can be run by
    double-clicking the file `VideoRentalStore_Part3.exe` found in the
-   `Solutions` folder inside of your lab folder.
+   `Executables` folder inside of your lab folder.
 
    When done, save and close project `VideoRentalStore_Part3`.
    \END{Warning}
