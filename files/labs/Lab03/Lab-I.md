@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Visual Basic"
+title: "Introduction to Visual Basic I"
 ---
 
 # Topics
@@ -189,13 +189,7 @@ Part 1 (30/100): A successful `StraightforwardProgram_Part2` program:
 
    \newpage
 
-1. Use **File Explorer** to navigate to the folder containing your
-   final version of your project `VideoRentalStore_Part3` in your lab folder.
-   Copy and paste this project in the same folder, and then right-click on the
-   copy to rename it as `VideoRentalStore_Part4`. Launch VS Express and use it
-   to open the project `VideoRentalStore_Part4`.
-
-   Use your `VideoRentalStore_Part4` program to complete the following test
+1. Use your `VideoRentalStore_Part3` program to complete the following test
    table for the different input values shown on the left. This activity is
    known as program testing which is common practice in computer programming.
    The importance of this seemingly tedious activity cannot be overstated!
@@ -231,39 +225,11 @@ Part 1 (30/100): A successful `StraightforwardProgram_Part2` program:
    \end{tabular}
    \endgroup
 
-   ```vbnet
-   "TODO: HOW TO HAVE STUDENTS SUBMIT ANSWERS?
-   ```
-
-   Now change your `VideoRentalStore_Part4` to use format strings in Visual
-   Basic to produce a nicely formatted customer receipt that contains the same
-   output as your `VideoRentalStore_Part3`. Currency values MUST be rounded off
-   to EXACTLY two decimal places. 
-
-   ```
-   Customer name: Mary Smith
-   Rental period: 5 days
-
-   Regular videos (5 @ $2.50)    $1.85
-   Premium videos (3 @ $5.25) 
-   -----------------------------------
-   Subtotal                      $5.45
-   Tax                           $0.38
-   Total                         $5.83
-   ```
-
-   \BEGIN{Warning}
-   When done, save and close project `VideoRentalStore_Part4`.
-   \END{Warning}
-
    \BEGIN{Rubric}
-   Part 4 (75/100): A successful `VideoRentalStore_Part4` program:
+   Part 4 (75/100): A successful part 4:
 
    - produces correct output: the expected after-tax total MUST match the actual
      after-tax total for all cases in the table
-   - uses Visual Basic format strings to produce the same output from
-     `VideoRentalStore_Part3` with currency values rounded off to EXACTLY two
-     decimal places. 
    - must also have successfully completed Part 1 
 
    \END{Rubric}
@@ -278,4 +244,3 @@ During our next lab meeting, you will be asked to expand your solutions to Part
 
 You will submit your work for this lab and the next one together at the end of
 our next lab meeting
-
