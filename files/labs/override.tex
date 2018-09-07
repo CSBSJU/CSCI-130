@@ -89,6 +89,28 @@
 {\endMakeFramed}%
 \makeatother
 
+% Environment for submission messages
+\makeatletter
+\newenvironment{Submission}[1][\hsize]
+{%
+  \color{OliveGreen}%
+  \vspace{.75\baselineskip}%
+  \def\FrameCommand
+  {%
+    {%
+      \color{OliveGreen}\vrule width 8pt}%
+      \hspace{0pt}%must no space.
+      \fboxsep=\FrameSep\fcolorbox{OliveGreen}{white}%
+    }%
+  \MakeFramed{%
+    \hsize#1\advance\hsize-\width%
+    \@totalleftmargin=-\itemindent%
+    \FrameRestore%
+  }%
+}%
+{\endMakeFramed}%
+\makeatother
+
 \let\BEGIN\begin
 \let\END\end
 

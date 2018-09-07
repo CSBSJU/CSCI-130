@@ -9,8 +9,15 @@ title: "Introduction to Visual Basic I"
 *	Assignment statements
 *	Evaluating expressions
 *	User input: strings and numbers
-*	New material for students to learn via online resources: Using format
-  strings in Visual Basic
+
+# Preliminaries
+If you haven’t already done so, start by making a copy of today’s lab folder
+(Lab03) and saving it in your `M:\CS130\Labs` folder. Right-click on the folder
+you just copied and rename it `Lab03_YourLastName_YourFirstName` (but use your
+actual last and first names).
+
+You may now work locally by opening the write-up from within the copied folder. 
+
 
 # A straightforward program
 
@@ -21,7 +28,7 @@ title: "Introduction to Visual Basic I"
    Complete `StraightforwardProgram_Part1.rap` so that it prompts the user to
    input a first name and a last name (using two input symbols) and outputs to
    the *MasterConsole* a single line containing the full name input by the user
-   formatted as below (for input `John Miller`):
+   formatted as below (for inputs `John` and `Miller`):
 
    ```
    Hello Miller, John
@@ -31,20 +38,19 @@ title: "Introduction to Visual Basic I"
    When done, save and close file `StraightforwardProgram_Part1.rap`.
    \END{Warning}
 
-1. Launch VS Express 2013 to create a Visual Basic program called
-   `StraightforwardProgram_Part2` inside the folder `StraightforwardProgram`
-   inside of your lab folder. For directions creating a Visual Basic program in
-   VS Express 2013, consult the document **VSExpress2013.pdf**.
+1. Launch VS Express 2013 and open the project `StraightforwardProgram_Part2`
+   which can be found inside of the folder `StraightforwardProgram` inside of
+   your lab folder.
 
-   Your created project will contain a single empty Form object by default. In
-   the Form properties window (if it is not completely visible, click on the
-   Properties tab on the right side of the screen), change the Name property to
+   Your project will contain a single empty Form object by default. In the Form
+   properties window (if it is not completely visible, click on the Properties
+   tab on the right side of the screen), change the Name property to
    **frmStraightforwardProgram** and Text property to **Straightforward
    Program**. (PS: the Name property of an object CANNOT contain spaces).
 
    Complete the program `StraightforwardProgram_Part2` so that is the equivalent
-   of your RAPTOR program, `StraightforwardProgram_Part1.rap`. It should look
-   something like this:
+   of your RAPTOR program, `StraightforwardProgram_Part1.rap`. It should
+   look something like the example below.
 
    ![](pic3.png)
 
@@ -57,20 +63,30 @@ title: "Introduction to Visual Basic I"
    * year of birth
    * college
    * major
-   * something interesting about themselves
 
    Then, using the additional user input, the output sentence should be updated
-   as well. Your program should now behave identically to the following example
-   (given identical input):
+   as well. The format for the output should be:
 
-   ![](pic4.png)
+   ```
+   Chuck Norris was born on March 10, 1940. They are a Chemistry major at
+   CSBSJU.
+   ```
+
+   where `Chunk` and `Norris` were input for the *first* and *last* name
+   respectfully, `March`, `10`, and `1940` for the *month*, *day*, and *year* of
+   birth respectfully, and `Chemistry` and `CSBSJU` for the *major* and
+   *college*.
 
    \BEGIN{Warning}
+   Your program should behave identically to the solution which can be run by
+   double-clicking the file `StraightforwardProgram_Part2.exe` found in the
+   `Solutions` folder inside of your lab folder.
+
    When done, save and close project `StraightforwardProgram_Part2`.
    \END{Warning}
 
 \BEGIN{Rubric}
-Part 1 (30/100): A successful `StraightforwardProgram_Part2` program:
+Checkpoint 1 (30/100): A successful `StraightforwardProgram_Part2` program:
 
 * is based on a complete and correct `StraightforwardProgram_Part1.rap` RAPTOR
   program that produces correctly formatted output for input first and last
@@ -103,27 +119,31 @@ Part 1 (30/100): A successful `StraightforwardProgram_Part2` program:
    When done, save and close file `VideoRentalStore_Part1.rap`.
    \END{Warning}
 
-1. Launch VS Express 2013 and create a new Visual Basic project called
-   `VideoRentalStore_Part2` inside the folder `VideoRentalStore` inside of your
-   lab folder.
+1. Launch VS Express 2013 and open the project `VideoRentalStore_Part2`
+   which can be found inside of the folder `VideoRentalStore` inside of your lab
+   folder.
 
    Complete program `VideoRentalStore_Part2` so that it is the equivalent of
-   your RAPTOR program, `VideoRentalStore_Part1.rap`.
+   your RAPTOR program, `VideoRentalStore_Part1.rap`. 
 
    Next, enhance the Visual Basic program so that it can handle a variable
    number of days. For example, for input `Mary Smith` and `5` videos rented out
    for `3` days, the output becomes: 
 
    ```
-   Total cost for Mary Smith is $37.5000
+   Total cost for Mary Smith is $37.5
    ```
 
    \BEGIN{Warning}
+   Your program should behave identically to the solution which can be run by
+   double-clicking the file `VideoRentalStore_Part2.exe` found in the
+   `Solutions` folder inside of your lab folder.
+
    When done, save and close project `VideoRentalStore_Part2`.
    \END{Warning}
 
    \BEGIN{Rubric}
-   Part 2 (65/100):  A successful `VideoRentalStore_Part2` program:
+   Checkpoint 2 (65/100):  A successful `VideoRentalStore_Part2` program:
 
    * is based on a complete and correct `VideoRentalStore_Part1.rap` RAPTOR
      program that produces correctly formatted output for input customer name
@@ -139,7 +159,7 @@ Part 1 (30/100): A successful `StraightforwardProgram_Part2` program:
    \newpage
 
 1. Use **File Explorer** to navigate to the folder containing your
-   final version of your project `VideoRentalStore_Part2` in your lab folder.
+   final version of your program `VideoRentalStore_Part2` in your lab folder.
    Copy and paste this project in the same folder, and then right-click on the
    copy to rename it as `VideoRentalStore_Part3`. Launch VS Express and use it
    to open the project `VideoRentalStore_Part3`.
@@ -157,28 +177,24 @@ Part 1 (30/100): A successful `StraightforwardProgram_Part2` program:
    Note that (5 \* 2.50 + 3 \* 5.25) \* 3 = 84.75
 
    Next, have your program display the output in a meaningful format which
-   includes the pretax total and the total after applying a 7% sales tax as in
-   the example below:
+   includes the pretax total and the total after applying a 7% sales tax; for
+   for the example above, your program would display:
 
-   Program input: 
    ```
-   Enter customer name: XX YY
-   Enter number of regular videos (@ $2.50 per day): 5
-   Enter number of premium videos (@ $5.25 per day): 3
-   Enter number of days: 5
-   ```
-
-   Program output:
-   ```
-   Hello XX YY, your pretax total for 5 regular videos and 3 premium videos for 5 days is $141.25, or $151. 1375 after tax.
+   Hello Mary Smith, your pretax total for 5 regular videos and 3 premium videos
+   for 5 days is $141.25, or $151.1375 after tax.
    ```
 
    \BEGIN{Warning}
+   Your program should behave identically to the solution which can be run by
+   double-clicking the file `VideoRentalStore_Part3.exe` found in the
+   `Solutions` folder inside of your lab folder.
+
    When done, save and close project `VideoRentalStore_Part3`.
    \END{Warning}
 
    \BEGIN{Rubric}
-   Part 3 (70/100): A successful `VideoRentalStore_Part3` program:
+   Checkpoint 3 (70/100): A successful `VideoRentalStore_Part3` program:
 
    * produces correctly formatted output, including pretax and after-tax total
      as in the last example above, for input customer name, number of regular
@@ -226,7 +242,7 @@ Part 1 (30/100): A successful `StraightforwardProgram_Part2` program:
    \endgroup
 
    \BEGIN{Rubric}
-   Part 4 (75/100): A successful part 4:
+   Checkpoint 4 (75/100): A successful part 4:
 
    - produces correct output: the expected after-tax total MUST match the actual
      after-tax total for all cases in the table
@@ -234,13 +250,16 @@ Part 1 (30/100): A successful `StraightforwardProgram_Part2` program:
 
    \END{Rubric}
 
-## Submission Instructions
-During our next lab meeting, you will be asked to expand your solutions to Part
-3 and work on new exercise. Prior to the meeting, you are expected to 
+   \BEGIN{Submission}
+   **Submission Instructions**
 
-* finish ALL parts of this lab, 
-* study (again) any material you struggled with in this lab, and
-* study new material needed for the next lab
+   During our next lab meeting, you will be asked to expand your solutions to
+   Part 3 and work on new exercise. Prior to the meeting, you are expected to 
 
-You will submit your work for this lab and the next one together at the end of
-our next lab meeting
+   * finish ALL parts of this lab, 
+   * study (again) any material you struggled with in this lab, and
+   * study new material needed for the next lab
+
+   You will submit your work for this lab and the next one together at the end
+   of our next lab meeting
+  \END{Submission}
