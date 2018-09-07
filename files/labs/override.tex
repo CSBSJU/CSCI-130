@@ -17,6 +17,7 @@
 \let\oldrule=\rule
 \renewcommand{\rule}[1]{\oldrule{\linewidth}}
 
+% Environment for code snippets
 \ifdefined\Shaded
   \makeatletter
   \renewenvironment{Shaded}[1][\hsize]
@@ -44,6 +45,53 @@
   \renewcommand{\BuiltInTok}[1]{\textcolor[RGB]{43,145,175}{#1}}
 \fi
 
+% Environment for rubrics specs
+\makeatletter
+\newenvironment{Rubric}[1][\hsize]
+{%
+  \color{blue}%
+  \vspace{.75\baselineskip}%
+  \def\FrameCommand
+  {%
+    {%
+      \color{blue}\vrule width 8pt}%
+      \hspace{0pt}%must no space.
+      \fboxsep=\FrameSep\fcolorbox{blue}{white}%
+    }%
+  \MakeFramed{%
+    \hsize#1\advance\hsize-\width%
+    \@totalleftmargin=-\itemindent%
+    \FrameRestore%
+  }%
+}%
+{\endMakeFramed}%
+\makeatother
+
+% Environment for warning messages
+\makeatletter
+\newenvironment{Warning}[1][\hsize]
+{%
+  \color{BrickRed}%
+  \vspace{.75\baselineskip}%
+  \def\FrameCommand
+  {%
+    {%
+      \color{BrickRed}\vrule width 8pt}%
+      \hspace{0pt}%must no space.
+      \fboxsep=\FrameSep\fcolorbox{BrickRed}{white}%
+    }%
+  \MakeFramed{%
+    \hsize#1\advance\hsize-\width%
+    \@totalleftmargin=-\itemindent%
+    \FrameRestore%
+  }%
+}%
+{\endMakeFramed}%
+\makeatother
+
+\let\BEGIN\begin
+\let\END\end
+
 \usepackage{titling}
-\posttitle{\par\end{center}\vspace{-20pt}}
-\setlength{\droptitle}{-40pt}
+\posttitle{\par\end{center}\vspace{-50pt}}
+\setlength{\droptitle}{-60pt}
