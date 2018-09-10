@@ -130,7 +130,7 @@ title: "Meeting schedule"
     <tr>
       <td></td>
       <td>Visual Basic: formatting</td>
-      <td>3.6</td>
+      <td>3.3&ndash;3.6</td>
     </tr>
     <tr>
       <td></td>
