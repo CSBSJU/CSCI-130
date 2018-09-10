@@ -17,4 +17,4 @@
     ├── discuss different ways to get the output to start at 1, when our counter
     │   starts at 0
     │
-    └── describe part 1 of tomorrow's lab wh will be asked to disp
+    └── describe part 1 of tomorrow's lab

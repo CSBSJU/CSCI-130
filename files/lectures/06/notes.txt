@@ -1,0 +1,17 @@
+├── data types
+│   │
+│   └── have students list them on the board for me (and describe them)
+│
+├── translate RAPTOR program to VB in small groups
+│
+└── introduce variable scope
+    │
+    └── show example with a button counter
+        │
+        ├── talk about two uses of form-level, i.e., persist values between
+        │   button clicks and use variable in multiple subroutines
+        │
+        ├── explain about initial value for variables using "NOBODY" in second
+        │   button counter example
+        │
+        └── point out that there was no notion of variable scope in RAPTOR
