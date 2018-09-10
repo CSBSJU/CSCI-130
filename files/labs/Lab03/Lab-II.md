@@ -93,8 +93,9 @@ title: "Introduction to Visual Basic II"
    it as `VideoRentalStore_Part6`. Launch VS Express and use it to open the
    program `VideoRentalStore_Part6`.
 
-   Enhance your program to allow users to purchase the following additional items
-   during checkout: *candy* @ $1.50, *popcorn* @ $5.00 a bag, and *soda* @ $2.25.
+   Enhance your program to allow users to purchase the following additional
+   items during checkout: *candy* @ $1.50, *popcorn* @ $5.00 a bag, and *soda* @
+   $2.25.
 
    \BEGIN{Warning}
    Your program should behave identically to the solution which can be run by
@@ -125,7 +126,30 @@ title: "Introduction to Visual Basic II"
    Enhance your program again so that the number of *sodas* purchased is not
    input via a textbox, but instead is controlled by the number of times that a
    button is pressed. For example, if the soda button is pressed six times, that
-   would indicate that six sodas were purchased.
+   would indicate that six sodas were purchased. Furthermore, each time that the
+   soda button is pressed, a message should be displayed in the rich textbox
+   designated for output indicating how many sodas have currently been sold to
+   this customer. For example, a sale of three sodas, along with five regular
+   videos and three premium videos rented for five days would result in the
+   following output:
+
+   ```
+   1 x Soda @ $2.25
+   2 x Soda @ $2.25
+   3 x Soda @ $2.25
+   ===================================
+
+   Customer name: Mary Smith
+   Rental period: 5 days
+
+   Regular videos (5 @ $2.50)   $62.50
+   Premium videos (3 @ $5.25)   $78.75
+   Soda (3 @ $2.25)              $6.75
+   -----------------------------------
+   Subtotal                    $148.00
+   Tax                          $10.36
+   Total                       $158.36
+   ```
 
    Keep in mind that variables declared within a subroutine are "created" and
    "destroyed" each time the button associated with the subroutine is pressed.
@@ -167,10 +191,12 @@ title: "Introduction to Visual Basic II"
    program `VideoRentalStore_Part8`.
 
    Complete your program by changing it so that the count of each item is
-   controlled by pressing a button instead of inputting a number into a text
-   box. Effectively, you will create a digital cash register where the buttons
-   serve to "ring up" a customer. Your program should include buttons that
-   correspond to each of the items for sale.
+   controlled by pressing a button instead of inputting a number into a textbox.
+   Likewise, each time an item button is pressed, a message indicating the
+   current number of that item sold should be output to the rich textbox, as in
+   the last part. Effectively, you will create a digital cash register where the
+   buttons serve to "ring up" a customer. Your program should include buttons
+   that correspond to each of the items for sale.
 
    \BEGIN{Warning}
    Your program should behave identically to the solution which can be run by
