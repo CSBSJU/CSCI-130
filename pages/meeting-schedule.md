@@ -69,6 +69,7 @@ title: "Meeting schedule"
       <td><a class="inline_disabled" href="https://www.youtube.com/watch?v=ZcAALK3movs">{% icon video %}</a> <a class="inline_disabled" href="https://www.youtube.com/watch?v=eEoxssLPvkQ">{% icon video %}</a></td>
     </tr>
   </tbody>
+
   <thead>
     <tr class="ic-Table__row--bg-neutral">
       <th>Week 2</th>
@@ -100,11 +101,12 @@ title: "Meeting schedule"
       <td></td>
     </tr>
     <tr>
-      <td></td>
+      <td><a href="{% file lectures/05/Code.zip %}">{% icon zipped %}</a></td>
       <td>Visual Basic: introduction</td>
       <td>3.1&ndash;3.2</td>
     </tr>
   </tbody>
+
   <thead>
     <tr class="ic-Table__row--bg-neutral">
       <th>Week 3</th>
