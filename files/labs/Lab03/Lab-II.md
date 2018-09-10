@@ -144,6 +144,8 @@ title: "Introduction to Visual Basic II"
 
    Regular videos (5 @ $2.50)   $62.50
    Premium videos (3 @ $5.25)   $78.75
+   Candy bars (0 @ $1.50)        $0.00
+   Popcorn (0 @ $5.00)           $0.00
    Soda (3 @ $2.25)              $6.75
    -----------------------------------
    Subtotal                    $148.00

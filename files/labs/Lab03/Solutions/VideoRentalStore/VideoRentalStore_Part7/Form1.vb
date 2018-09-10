@@ -15,14 +15,16 @@
         numberOfBagsOfPopcorn = txtNumberOfBagsOfPopcorn.Text
         pretaxTotal = ((numberOfRegularVideos * 2.5 + numberOfPremiumVideos * 5.25) * numberOfDays) + numberOfCandyBars * 1.5 + numberOfBagsOfPopcorn * 5 + numberOfCansOfSoda * 2.25
 
-        outResults.Text = "Customer name: " & firstName & " " & lastName & vbNewLine
+        outResults.AppendText("======================================" & vbNewLine)
+        outResults.AppendText(vbNewLine)
+        outResults.AppendText("Customer name: " & firstName & " " & lastName & vbNewLine)
         outResults.AppendText("Rental period: " & numberOfDays & " days" & vbNewLine)
         outResults.AppendText(vbNewLine)
         outResults.AppendText(String.Format(fmtStr, "Regular videos (" & numberOfRegularVideos & " @ $2.50)", FormatCurrency(numberOfRegularVideos * 2.5 * numberOfDays)))
         outResults.AppendText(String.Format(fmtStr, "Premium videos (" & numberOfPremiumVideos & " @ $5.25)", FormatCurrency(numberOfPremiumVideos * 5.25 * numberOfDays)))
         outResults.AppendText(String.Format(fmtStr, "Candy bars (" & numberOfCandyBars & " @ $1.50)", FormatCurrency(numberOfCandyBars * 1.5)))
-        outResults.AppendText(String.Format(fmtStr, "Bags of popcorn (" & numberOfBagsOfPopcorn & " @ $5.00)", FormatCurrency(numberOfBagsOfPopcorn * 5)))
-        outResults.AppendText(String.Format(fmtStr, "Cans of soda (" & numberOfCansOfSoda & " @ $2.25)", FormatCurrency(numberOfCansOfSoda * 2.25)))
+        outResults.AppendText(String.Format(fmtStr, "Popcorn (" & numberOfBagsOfPopcorn & " @ $5.00)", FormatCurrency(numberOfBagsOfPopcorn * 5)))
+        outResults.AppendText(String.Format(fmtStr, "Soda (" & numberOfCansOfSoda & " @ $2.25)", FormatCurrency(numberOfCansOfSoda * 2.25)))
         outResults.AppendText("--------------------------------------" & vbNewLine)
         outResults.AppendText(String.Format(fmtStr, "Subtotal", FormatCurrency(pretaxTotal)))
         outResults.AppendText(String.Format(fmtStr, "Tax", FormatCurrency(pretaxTotal * 0.07)))
@@ -35,5 +37,6 @@
 
     Private Sub txtSodaSale_Click(sender As Object, e As EventArgs) Handles txtSodaSale.Click
         numberOfCansOfSoda = numberOfCansOfSoda + 1
+        outResults.AppendText(numberOfCansOfSoda & " x Soda @ $2.25" & vbNewLine)
     End Sub
 End Class
