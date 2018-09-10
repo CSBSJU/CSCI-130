@@ -5,9 +5,6 @@
           extensions="*.vb"
           mimetype="text/x-vbnet-src">
   <highlighting>
-    <list name="controlflow">
-      <item>If</item>
-    </list>
     <list name="keywords">
       <item>Option</item>
       <item>Explicit</item>
@@ -23,6 +20,9 @@
       <item>ByVal</item>
       <item>Handles</item>
       <item>Object</item>
+      <item>If</item>
+      <item>Then</item>
+      <item>Like</item>
     </list>
     <list name="builtins">
       <item>EventArgs</item>
@@ -34,7 +34,6 @@
         <DetectSpaces />
         <StringDetect attribute="Keyword" context="PublicClass" String="Public Class" />
         <StringDetect attribute="Keyword" context="#stay" String="End Class" />
-        <keyword attribute="Control Flow" context="#stay" String="controlflow"/>
         <keyword attribute="Keyword" context="#stay" String="keywords"/>
         <keyword attribute="Built In" context="#stay" String="builtins"/>
         <DetectChar attribute="String" context="String" char="&quot;"/>
@@ -58,7 +57,6 @@
     </contexts>
     <itemDatas>
       <itemData name="Normal Text"  defStyleNum="dsNormal" spellChecking="false"/>
-      <itemData name="Control Flow" defStyleNum="dsControlFlow" spellChecking="false"/>
       <itemData name="Keyword"      defStyleNum="dsKeyword" spellChecking="false"/>
       <itemData name="Built In"     defStyleNum="dsBuiltIn" spellChecking="false"/>
       <itemData name="Float"        defStyleNum="dsFloat" spellChecking="false"/>
