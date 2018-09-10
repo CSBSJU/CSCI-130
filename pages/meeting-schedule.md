@@ -118,7 +118,7 @@ title: "Meeting schedule"
   <tbody>
     <tr>
       <td rowspan="0" style="vertical-align:top">10-Sep</td>
-      <td></td>
+      <td><a href="{% file lectures/06/Code.zip %}">{% icon zipped %}</a></td>
       <td>Visual Basic: objects, variables, input and output</td>
       <td>3.3&ndash;3.5</td>
     </tr>
