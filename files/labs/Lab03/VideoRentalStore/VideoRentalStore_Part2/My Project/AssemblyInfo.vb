@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("StraightforwardProgram")> 
+<Assembly: AssemblyTitle("VideoRentalStore")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("CSB/SJU")> 
-<Assembly: AssemblyProduct("StraightforwardProgram")> 
+<Assembly: AssemblyProduct("VideoRentalStore")> 
 <Assembly: AssemblyCopyright("Copyright © CSB/SJU 2018")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("b89bf6be-db7f-4da2-91b6-7e7e13be4069")> 
+<Assembly: Guid("9e9b1575-eb6f-48f8-be07-59ad00db4488")> 
 
 ' Version information for an assembly consists of the following four values:
 '

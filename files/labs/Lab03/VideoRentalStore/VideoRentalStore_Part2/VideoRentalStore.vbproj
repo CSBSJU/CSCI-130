@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{52C45459-B31A-40F9-AE55-8018FED875EE}</ProjectGuid>
+    <ProjectGuid>{E9FD5E47-FE1E-4D07-A745-ACE76D0E3B41}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>StraightforwardProgram.My.MyApplication</StartupObject>
-    <RootNamespace>StraightforwardProgram</RootNamespace>
-    <AssemblyName>StraightforwardProgram</AssemblyName>
+    <StartupObject>VideoRentalStore.My.MyApplication</StartupObject>
+    <RootNamespace>VideoRentalStore</RootNamespace>
+    <AssemblyName>VideoRentalStore</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -20,7 +20,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>StraightforwardProgram.xml</DocumentationFile>
+    <DocumentationFile>VideoRentalStore.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -30,7 +30,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>StraightforwardProgram.xml</DocumentationFile>
+    <DocumentationFile>VideoRentalStore.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
