@@ -4,16 +4,15 @@ title: "Decisions in Visual Basic I"
 
 # Topics
 
-* if/else statements
+* if statements
 * testing the "randomness" of random numbers
 * introduction to concept of string patterns
-* creating your own test cases to verify the correctness of a program
 
 # Preliminaries
 If you haven’t already done so, start by making a copy of today’s lab folder
-(Lab04) and saving it in your `M:\CS130\Labs` folder. Right-click on the folder
-you just copied and rename it `Lab04_YourLastName_YourFirstName` (but use your
-actual last and first names).
+(`Lab04_Decisions`) and saving it in your `M:\CS130\Labs` folder. Right-click on
+the folder you just copied and rename it `Lab04_YourLastName_YourFirstName` (but
+use your actual last and first names).
 
 You may now work locally by opening the write-up from within the copied folder.
 
@@ -35,7 +34,7 @@ You may now work locally by opening the write-up from within the copied folder.
    be found inside of the folder `FlippingACoin` inside of your lab folder.
 
    Complete the program `FlippingACoin_Part2` so that is the equivalent
-   of your RAPTOR program, `FlippingACoin_Part1.rap`.
+   of your RAPTOR program.
 
    Run this program 20 times and record below the number of *Heads* and number
    of *Tails*:
@@ -128,7 +127,7 @@ Have you ever wondered why many websites have password requirements like:
   * upper-case letter,
   * lower-case letter,
   * number, and
-  * special character: ! $ / % @ #
+  * special character: ^ $ / % @ #
   
 These are all attempts to prevent users from choosing passwords that are easy to
 guess. Keep in mind, that in this context, it is not a person guessing, but
@@ -166,29 +165,29 @@ second would take to crack the input password.
 
 To start, let's define the *password alphabet*. The *password alphabet* is the
 set of letters, numbers, and other characters that are allowed to be used to
-compose a password. So for example, if only lower-case letters were allowed in a
-password, then the alphabet would be a-z and its size would be 26. However, if
+compose a password. So, for example, if only lower-case letters were allowed in
+a password, then the alphabet would be a-z and its size would be 26. However, if
 upper-case letters as well as numbers were allowed, then the alphabet would be
 a-z, A-Z and 0-9, and its size would be 62.
 
 Given this definition, then the total number of passwords of length *L* that can
 be created from an alphabet of size *C* can be expressed as:
 
-(@) $$C^L$$
+$$C^L$$
 
 Since a cracking program does not know a priori how many characters are in the
 password it is trying to crack, it will have to check not only those passwords
-of length *L*, but also those password whose length is less than *L*. Thus,
-using equation (1), the *search space* for a password of length *L* can be
-expressed as:
+of length *L*, but also those passwords whose length is less than *L*. Thus,
+using the previous equation, the *search space* for a password of length *L* can
+be expressed as:
 
-(@) $$(C^1+C^2+\dots+C^L)=C(C^L-1)/(C-1)$$
+$$(C^1+C^2+\dots+C^L)=C(C^L-1)/(C-1)$$
 
 Given a cracking program capable of checking *G* passwords per second, the time
 it would take (in seconds) to check all passwords in a search space of that size
 can be expressed as:
 
-(@) $$(C(C^L-1)/(C-1))/G$$
+$$(C(C^L-1)/(C-1))/G$$
 
 Keep in mind that this is not an indication of how long it would take to crack a
 particular password, only of how long to check the entire search space. It is
@@ -198,20 +197,15 @@ password length on the search space and time.
 
 ## Instructions
 
-1. Launch VS Express 2013 and open the program `PasswordCrackCalculator_Part1`
-   which can be found inside of the folder `PasswordCrackCalculator` inside of
-   your lab folder.
-
-   ![](pic1.png)
+1. Launch VS Express 2013 and open the program `PasswordCracking_Part1` which
+   can be found inside of the folder `PasswordCracking` inside of your lab
+   folder.
 
    You are to write a program that accomplishes the tasks described in the
-   previous section. The interface for your program should match that of the
-   example above.
-
-   Before you can even think about computing the size of the search space and
-   how long it would take to check, you must determine the size of the alphabet.
-   For this problem, the alphabet will be dictated by the
-   password entered by the user.
+   previous section. However, before you can even think about computing the size
+   of the search space and how long it would take to check, you must determine
+   the size of the alphabet. For this problem, the alphabet will be dictated by
+   the password entered by the user.
 
    For example, if the user entered the password `PASSWORD`, then the alphabet
    size would be 26 because `PASSWORD` only contains upper-case letters, of
@@ -219,13 +213,15 @@ password length on the search space and time.
    alphabet size would be 52 because `PaSSwORD` contains both upper- and
    lower-case letters.
 
+   \newpage
+
    Any valid password entered by the user can only contain characters belonging
    to one of the following character types:
 
    * lower-case letters [a-z],
    * upper-case letters [A-Z],
    * digits [0-9], and
-   * special characters [!$/%@#].
+   * special characters [\^$/%@#].
 
    To compute the total size of the alphabet based on the user input password,
    determine which character types are included in the user's password and add
@@ -235,15 +231,15 @@ password length on the search space and time.
    To find out if a
    [`String`](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/data-types/string-data-type)
    contains any one of a set of characters, you can use the
-[`Like`](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/operators/like-operator)
+   [`Like`](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/operators/like-operator)
    operator. For example, to check if the `String` variable `passwd` contains
    any lower-case letters and add the appropriate amount to the variable
-   `alphabetSize` if it does, you should use the following Visual Basic code:
+   `alphabetSize` if it does, you would use the following Visual Basic code:
 
    ```vbnet
-        If passwd Like "*[a-z]*" Then
-            alphabetSize = alphabetSize + 26
-        End If
+   If passwd Like "*[a-z]*" Then
+       alphabetSize = alphabetSize + 26
+   End If
    ```
 
    The correct pattern for each of the different characters types is as
@@ -254,42 +250,23 @@ password length on the search space and time.
    * digits `"*[0-9]*"`, or
    * special characters `"*[^$/%@#]*"`.
 
-   Complete `PasswordCrackCalculator_Part1` so that it takes a user input
-   password and computes and outputs the alphabet size based on the user's
-   input. After you get your program working, fill out the following table,
-   making sure that your expected output and actual output are consistent.
+   Complete `PasswordCracking_Part1` so that it takes a user input password and
+   computes and outputs the alphabet size based on the user's input.
 
-   \begingroup
-   \renewcommand{\arraystretch}{1.5}
-   \begin{tabular}{|p{.3\linewidth}|p{.3\linewidth}|p{.3\linewidth}|}
-    \hline
-    \multicolumn{3}{|c|}{\textbf{Test Table 1}}\\\hline
-    \textbf{Input values for your program} \emph{(run your program for each of
-      the following cases)} &
-    \textbf{Expected program output for alphabet size} \emph{(what output you
-      expect your program to produce for the given input --- please compute by
-      hand and write down missing entries [indicated by ???])} &
-    \textbf{Actual program output for alphabet size} \emph{(what output your
-      program actually produces for the given inputs)}\\\hline
-
-    \texttt{"aaaa"} & 26  & \\\hline
-    \texttt{"AAAA"} & 26  & \\\hline
-    \texttt{"1111"} & ??? & \\\hline
-    \texttt{"!!!!"} & ??? & \\\hline
-    \texttt{"aA1!"} & ??? & \\\hline
-   \end{tabular}
-   \endgroup
+   After you get your program working, fill out
+   `PasswordCracking_TestTable1.docx`, making sure that your expected output and
+   actual output are consistent.
 
    \BEGIN{Warning}
    Your program should behave identically to the solution which can be run by
-   double-clicking the file `PasswordCrackCalculator_Part1.exe` found in the
+   double-clicking the file `PasswordCracking_Part1.exe` found in the
    `Executables` folder inside of your lab folder.
 
-   When done, save and close program `PasswordCrackCalculator_Part1`.
+   When done, save and close program `PasswordCracking_Part1`.
    \END{Warning}
 
    \BEGIN{Rubric}
-   Checkpoint 3 (70/100): A successful `PasswordCrackCalculator_Part1` program:
+   Checkpoint 3 (70/100): A successful `PasswordCracking_Part1` program:
 
    * produces correct output for all test cases in Test Table 1
    * must also have successfully completed Checkpoint 2
@@ -299,10 +276,10 @@ password length on the search space and time.
    \newpage
 
 1. Use **File Explorer** to navigate to the folder containing the final version
-   of your program `PasswordCrackCalculator_Part1` in your lab folder. Copy and
-   paste this program in the same folder, and then right-click on the copy to
-   rename it as `PasswordCrackCalculator_Part2`. Launch VS Express and use it to
-   open the program `PasswordCrackCalculator_Part2`.
+   of your program `PasswordCracking_Part1` in your lab folder. Copy and paste
+   this program in the same folder, and then right-click on the copy to rename
+   it as `PasswordCracking_Part2`. Launch VS Express and use it to open the
+   program `PasswordCracking_Part2`.
 
    Enhance your program so that instead of outputting just the alphabet size, it
    outputs the search space size as well. To do this, first recall the equation
@@ -321,43 +298,28 @@ password length on the search space and time.
    passwdLength = passwd.Length
    ```
 
-   One of the most important tasks when developing a piece of software is to
-   test it to ensure its correctness. To this end, you should expand Test Table
-   1 with additional inputs values that will test your code under different
-   conditions.
+   After you get your program working, fill out
+   `PasswordCracking_TestTable2.docx`, making sure that your expected output and
+   actual output are consistent.
 
-   Be judicious about your choice of test cases, so that you are not repeating
-   calculations that will ultimately produce the same results. For example, it
-   is probably not necessary to check both `"aaaa"` and `"bbbb"` since they
-   define the same alphabet and have the same length.
-
-   If you are satisfied with your set of test cases and your program is
-   producing correct results, then your set of test cases is inadequate. If you
-   have found a test case for which your program produces incorrect output, or
-   you cannot come up with any such cases after thinking about it for some time,
-   then you should download and run this [testing program](TODO).
-
-   To run the test program ... This will run your program using a pre-defined
-   set of test cases and report whether or not your program produced the correct
-   output. The testing program should report two failures (test8 and test9). If
-   it reports more, then you should address each of them until only these two
-   remain.
-   Getting your program to produce correct results for test8 and test9 will be
-   the subject of our next lab meeting. For now, it is enough that you consider
-   why this might be happening.
+   You SHOULD get an error when you input the password in the last row. Getting
+   your program to produce correct results for this input will be the subject of
+   our next lab meeting. For now, it is enough that you consider why this might
+   be happening.
 
    \BEGIN{Warning}
    Your program should behave identically to the solution which can be run by
-   double-clicking the file `PasswordCrackCalculator_Part2.exe` found in the
+   double-clicking the file `PasswordCracking_Part2.exe` found in the
    `Executables` folder inside of your lab folder.
 
-   When done, save and close program `PasswordCrackCalculator_Part2`.
+   When done, save and close program `PasswordCracking_Part2`.
    \END{Warning}
 
    \BEGIN{Rubric}
-   Checkpoint 4 (75/100): A successful `PasswordCrackCalculator_Part2` program:
+   Checkpoint 4 (75/100): A successful `PasswordCracking_Part2` program:
 
-   * produces correct results for all test cases except test8 and test9
+   * produces correct output for all test cases in Test Table 2 except
+     `"aA1@@@"`
    * must also have successfully completed Checkpoint 2
 
    \END{Rubric}

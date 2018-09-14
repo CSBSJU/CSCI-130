@@ -23,9 +23,11 @@
       <item>If</item>
       <item>Then</item>
       <item>Like</item>
+      <item>Return</item>
     </list>
     <list name="builtins">
       <item>EventArgs</item>
+      <item>MessageBox</item>
       <item>OpenMode</item>
       <item>Array</item>
     </list>

@@ -8,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Cracking")> 
+<Assembly: AssemblyTitle("PasswordCracking")> 
 <Assembly: AssemblyDescription("")> 
 <Assembly: AssemblyCompany("CSB/SJU")> 
-<Assembly: AssemblyProduct("Cracking")> 
+<Assembly: AssemblyProduct("PasswordCracking")> 
 <Assembly: AssemblyCopyright("Copyright © CSB/SJU 2018")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("82d441d1-94bc-476d-86d2-9885a692cbc4")> 
+<Assembly: Guid("08c818a2-9279-4034-8468-266e6b8b82f8")> 
 
 ' Version information for an assembly consists of the following four values:
 '
