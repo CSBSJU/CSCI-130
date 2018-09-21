@@ -3,10 +3,10 @@
 Public Class frmPasswordCrackCalculator
 
     Public Sub btnCompute_Click(sender As Object, e As EventArgs) Handles btnCompute.Click
-        Dim passwd, unit As String
+        Dim passwd As String
         Dim alphabetSize, passwdLength, gps As Integer
         Dim searchSpace As Long
-        Dim searchTime As Single
+        Dim searchTime As Double
 
         alphabetSize = 0
         passwd = txtPassword.Text
@@ -36,7 +36,7 @@ Public Class frmPasswordCrackCalculator
 
         txtAlphabetSize.Text = alphabetSize
         txtSearchSpace.Text = searchSpace
-        txtSearchTime.Text = searchTime & " seconds"
+        txtSearchTime.Text = FormatNumber(searchTime, 3) & " seconds"
     End Sub
 
 End Class

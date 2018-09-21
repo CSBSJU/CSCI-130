@@ -6,7 +6,7 @@ Public Class frmPasswordCrackCalculator
         Dim passwd, unit As String
         Dim alphabetSize, passwdLength, gps As Integer
         Dim searchSpace As Long
-        Dim searchTime As Single
+        Dim searchTime As Double
 
         alphabetSize = 0
         passwd = txtPassword.Text

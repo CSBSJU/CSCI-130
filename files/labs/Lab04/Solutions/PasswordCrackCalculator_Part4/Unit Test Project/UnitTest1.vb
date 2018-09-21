@@ -58,7 +58,7 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
     ' Test of Part 4. Make sure that the search time is being computed correctly for the test cases provided in the writeup.
     <TestMethod()> Public Sub Test4()
         Dim inputs As String() = {"aaaa", "AAAA", "1111", "$$$$", "aA1$"}
-        Dim outputs As String() = {"475.254", "475.254", "11.11", "1.554", "21700.5"}
+        Dim outputs As String() = {"475.254", "475.254", "11.110", "1.554", "21,700.500"}
 
         For i As Integer = 0 To inputs.Length - 1
             ' Populate input
@@ -71,20 +71,5 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
             ' Validate result
             Assert.AreEqual(outputs(i) & " seconds", form.txtSearchTime.Text, "Password: " + inputs(i))
         Next
-    End Sub
-
-    <TestMethod()> Public Sub Test5()
-        ' Test unit calculations
-    End Sub
-
-    <TestMethod()> Public Sub Test6()
-        ' Populate input
-        form.txtPassword.Text = "aA0$$$$$$$$"
-
-        ' Simulate button click
-        form.btnCompute_Click(form.btnCompute, EventArgs.Empty)
-
-        ' Validate result
-        Assert.AreEqual("145892225677715551124", form.txtSearchSpace.Text, "Password: " + "aA0$$$$$$$$")
     End Sub
 End Class

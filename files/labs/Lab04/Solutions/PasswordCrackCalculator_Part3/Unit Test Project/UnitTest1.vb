@@ -54,19 +54,4 @@ Imports Microsoft.VisualStudio.TestTools.UnitTesting
         ' Validate result
         Assert.AreEqual("100343116692", form.txtSearchSpace.Text, "Password: " + "aA0$$")
     End Sub
-
-    <TestMethod()> Public Sub Test4()
-        ' Test unit calculations
-    End Sub
-
-    <TestMethod()> Public Sub Test5()
-        ' Populate input
-        form.txtPassword.Text = "aA0$$$$$$$$"
-
-        ' Simulate button click
-        form.btnCompute_Click(form.btnCompute, EventArgs.Empty)
-
-        ' Validate result
-        Assert.AreEqual("145892225677715551124", form.txtSearchSpace.Text, "Password: " + "aA0$$$$$$$$")
-    End Sub
 End Class
