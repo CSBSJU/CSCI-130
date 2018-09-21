@@ -9,18 +9,17 @@ title: "Decisions in Visual Basic I"
 * introduction to concept of string patterns
 
 # Preliminaries
-If you haven’t already done so, start by making a copy of today’s lab folder
-(`Lab04_Decisions`) and saving it in your `M:\CS130\Labs` folder. Right-click on
-the folder you just copied and rename it `Lab04_YourLastName_YourFirstName` (but
-use your actual last and first names).
+If you haven't already done so, start by making a copy of today's lab folder
+(`Lab04_Decisions`) and saving it in your `M:\CS130\Labs` folder. Right-click
+on the folder you just copied and rename it `Lab04_YourLastName_YourFirstName`
+(but use your actual last and first names).
 
 You may now work locally by opening the write-up from within the copied folder.
 
 # Flipping a coin
 
 1. Launch the RAPTOR software and use it to create and save a new program called
-   `FlippingACoin_Part1.rap` inside the folder `FlippingACoin` inside of your
-   lab folder.
+   `FlippingACoin_Part1.rap` inside of your lab folder.
 
    Complete `FlippingACoin_Part1.rap` so that it generates a random number
    between 0 and 1, exclusive, and prints `"Heads"` when the number is less than
@@ -30,13 +29,13 @@ You may now work locally by opening the write-up from within the copied folder.
    When done, save and close file `FlippingACoin_Part1.rap`.
    \END{Warning}
 
-1. Launch VS Express 2013 and open the program `FlippingACoin_Part2` which can
-   be found inside of the folder `FlippingACoin` inside of your lab folder.
+1. Launch VS Express 2013 and open the project `FlippingACoin_Part2` which can
+   be found inside of your lab folder.
 
-   Complete the program `FlippingACoin_Part2` so that is the equivalent
-   of your RAPTOR program.
+   Complete the project `FlippingACoin_Part2` so that it is equivalent to your
+   RAPTOR program.
 
-   Run this program 20 times and record below the number of *Heads* and number
+   Run this project 20 times and record below the number of *Heads* and number
    of *Tails*:
 
    * number of *Heads*: ______ out of 20 flips
@@ -46,15 +45,15 @@ You may now work locally by opening the write-up from within the copied folder.
    to generate *Heads* as *Tails*)?
 
    \BEGIN{Warning}
-   Your program should behave identically to the solution which can be run by
+   Your project should behave identically to the solution which can be run by
    double-clicking the file `FlippingACoin_Part2.exe` found in the `Executables`
    folder inside of your lab folder.
 
-   When done, save and close program `FlippinACoin_Part2`.
+   When done, save and close project `FlippinACoin_Part2`.
    \END{Warning}
 
    \BEGIN{Rubric}
-   Checkpoint 1 (30/100): A successful `FlippingACoin_Part2` program:
+   Checkpoint 1 (30/100): A successful `FlippingACoin_Part2` project:
 
    * is based on a complete and correct `FlippingACoin_Part1.rap` program that
      displays Heads and Tails based on your user
@@ -64,19 +63,18 @@ You may now work locally by opening the write-up from within the copied folder.
 
    \newpage
 
-1. Use **File Explorer** to navigate to the folder containing the final version
-   of your program `FlippingACoin_Part2` in your lab folder. Copy and paste this
-   program in the same folder, and then right-click on the copy to rename it as
-   `FlippingACoin_Part3`. Launch VS Express and use it to open the program
+1. Use **File Explorer** to navigate to your lab folder. Copy and paste the
+   folder `FlippingACoin_Part2`, and then right-click on the copy to rename it
+   as `FlippingACoin_Part3`. Launch VS Express and use it to open the project
    `FlippingACoin_Part3`.
 
-   Make the necessary changes to program `FlippingACoin_Part3` to simulate a
+   Make the necessary changes to the project `FlippingACoin_Part3` to simulate a
    **biased** coin instead of a fair one. When flipped, this biased coin is
-   three times more likely to generate Heads than Tails (Hint: recall that you
-   the value `0.5` from the previous part was chosen to split the range `[0,1)`
-   perfectly in half).
+   three times more likely to generate *Heads* than *Tails* (Hint: recall that
+   you the value `0.5` from the previous part was chosen to split the range
+   `[0,1)` perfectly in half).
 
-   Run this program 20 times and record below the number of *Heads* and number
+   Run this project 20 times and record below the number of *Heads* and number
    of *Tails*:
 
    * number of *Heads*: ______ out of 20 flips
@@ -85,15 +83,15 @@ You may now work locally by opening the write-up from within the copied folder.
    Does it look like a fair coin or a biased coin now?
 
    \BEGIN{Warning}
-   Your program should behave identically to the solution which can be run by
+   Your project should behave identically to the solution which can be run by
    double-clicking the file `FlippingACoin_Part3.exe` found in the `Executables`
    folder inside of your lab folder.
 
-   When done, save and close program `FlippinACoin_Part3`.
+   When done, save and close project `FlippinACoin_Part3`.
    \END{Warning}
 
    \BEGIN{Rubric}
-   Checkpoint 2 (65/100): A successful `FlippingACoin_Part3` program:
+   Checkpoint 2 (65/100): A successful `FlippingACoin_Part3` project:
 
    * simulates a biased coin that is three times more likely to generate *Heads*
      than *Tails*
@@ -111,7 +109,7 @@ would take 147.53338 centuries to crack, but in practice would be among the
 first passwords checked by any cracker worth their salt.
 
 ## TL;DR
-Implement a program to calculate the number of passwords that can be constructed
+Implement a project to calculate the number of passwords that can be constructed
 from some alphabet, as well as the time it would take to check the entire search
 space assuming a cracking program capable of some number of guesses per second.
 
@@ -156,12 +154,12 @@ protected identity is to determine how many possible passwords could be
 constructed from a given set of requirements, and how long it would take a
 computer cracking program to check all such passwords.
 
-Your task is to create a Visual Basic program that does just that. Your program
+Your task is to create a Visual Basic project that does just that. Your project
 will take a password as input, then compute the number of possible passwords,
 called the *search space*, that use the same types of characters as the input
-password. Then your program will output that search space, along with the amount
+password. Then your project will output that search space, along with the amount
 of time for a computer capable of checking a certain number of passwords per
-second would take to crack the input password.
+second to crack the input password.
 
 To start, let's define the *password alphabet*. The *password alphabet* is the
 set of letters, numbers, and other characters that are allowed to be used to
@@ -197,21 +195,20 @@ password length on the search space and time.
 
 ## Instructions
 
-1. Launch VS Express 2013 and open the program `PasswordCracking_Part1` which
-   can be found inside of the folder `PasswordCracking` inside of your lab
-   folder.
+1. Launch VS Express 2013 and open the project `PasswordCracking_Part1` which
+   can be found inside of your lab folder.
 
-   You are to write a program that accomplishes the tasks described in the
-   previous section. However, before you can even think about computing the size
-   of the search space and how long it would take to check, you must determine
-   the size of the alphabet. For this problem, the alphabet will be dictated by
-   the password entered by the user.
+   You are to complete this project so that it accomplishes the tasks described
+   in the previous section.
 
-   For example, if the user entered the password `PASSWORD`, then the alphabet
-   size would be 26 because `PASSWORD` only contains upper-case letters, of
-   which there are 26. However, if the user had entered `PaSSwORD`, then the
-   alphabet size would be 52 because `PaSSwORD` contains both upper- and
-   lower-case letters.
+   However, before you can even think about computing the size of the search
+   space and how long it would take to check, you must determine the size of the
+   alphabet. For this project, the alphabet will be dictated by the password
+   entered by the user. For example, if the user entered the password
+   `PASSWORD`, then the alphabet size would be 26 because `PASSWORD` only
+   contains upper-case letters, of which there are 26. However, if the user had
+   entered `PaSSwORD`, then the alphabet size would be 52 because `PaSSwORD`
+   contains both upper- and lower-case letters.
 
    \newpage
 
@@ -226,9 +223,7 @@ password length on the search space and time.
    To compute the total size of the alphabet based on the user input password,
    determine which character types are included in the user's password and add
    an amount appropriate for that character type to a variable called
-   `alphabetSize`.
-
-   To find out if a
+   `alphabetSize`. To find out if a
    [`String`](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/data-types/string-data-type)
    contains any one of a set of characters, you can use the
    [`Like`](https://docs.microsoft.com/en-us/dotnet/visual-basic/language-reference/operators/like-operator)
@@ -250,23 +245,38 @@ password length on the search space and time.
    * digits `"*[0-9]*"`, or
    * special characters `"*[^$/%@#]*"`.
 
-   Complete `PasswordCracking_Part1` so that it takes a user input password and
-   computes and outputs the alphabet size based on the user's input.
+   Complete the project `PasswordCracking_Part1` so that it takes a user input
+   password and computes and outputs the alphabet size based on the user's
+   input.
 
-   After you get your program working, fill out
+   One final note. Up to this point, our means of output has been limited to a
+   *Rich Text Box*, typically named `outResults`. However, in the project that
+   you have been given, you will be outputting to *Text boxes*, and specifically
+   for this part, a text box named `txtAlphabetSize`. Fortunately, in Visual
+   Basic, outputting to text boxes is done exactly like outputting to rich text
+   boxes, so the Visual Basic statement
+
+   ```vbnet
+   txtExample.Text = "This is an example of text box output."
+   ```
+
+   would put the sentence `"This is an example of text box output."` in the text
+   box named `txtExample`.
+
+   After you get your project working, fill out
    `PasswordCracking_TestTable1.docx`, making sure that your expected output and
    actual output are consistent.
 
    \BEGIN{Warning}
-   Your program should behave identically to the solution which can be run by
+   Your project should behave identically to the solution which can be run by
    double-clicking the file `PasswordCracking_Part1.exe` found in the
    `Executables` folder inside of your lab folder.
 
-   When done, save and close program `PasswordCracking_Part1`.
+   When done, save and close project `PasswordCracking_Part1`.
    \END{Warning}
 
    \BEGIN{Rubric}
-   Checkpoint 3 (70/100): A successful `PasswordCracking_Part1` program:
+   Checkpoint 3 (70/100): A successful `PasswordCracking_Part1` project:
 
    * produces correct output for all test cases in Test Table 1
    * must also have successfully completed Checkpoint 2
@@ -275,13 +285,12 @@ password length on the search space and time.
 
    \newpage
 
-1. Use **File Explorer** to navigate to the folder containing the final version
-   of your program `PasswordCracking_Part1` in your lab folder. Copy and paste
-   this program in the same folder, and then right-click on the copy to rename
+1. Use **File Explorer** to navigate to your lab folder. Copy and paste the
+   folder `PasswordCracking_Part1`, and then right-click on the copy to rename
    it as `PasswordCracking_Part2`. Launch VS Express and use it to open the
-   program `PasswordCracking_Part2`.
+   project `PasswordCracking_Part2`.
 
-   Enhance your program so that instead of outputting just the alphabet size, it
+   Enhance your project so that instead of outputting just the alphabet size, it
    outputs the search space size as well. To do this, first recall the equation
    for computing the search space size,
 
@@ -298,25 +307,25 @@ password length on the search space and time.
    passwdLength = passwd.Length
    ```
 
-   After you get your program working, fill out
+   After you get your project working, fill out
    `PasswordCracking_TestTable2.docx`, making sure that your expected output and
    actual output are consistent.
 
    You SHOULD get an error when you input the password in the last row. Getting
-   your program to produce correct results for this input will be the subject of
+   your project to produce correct results for this input will be the subject of
    our next lab meeting. For now, it is enough that you consider why this might
    be happening.
 
    \BEGIN{Warning}
-   Your program should behave identically to the solution which can be run by
+   Your project should behave identically to the solution which can be run by
    double-clicking the file `PasswordCracking_Part2.exe` found in the
    `Executables` folder inside of your lab folder.
 
-   When done, save and close program `PasswordCracking_Part2`.
+   When done, save and close project `PasswordCracking_Part2`.
    \END{Warning}
 
    \BEGIN{Rubric}
-   Checkpoint 4 (75/100): A successful `PasswordCracking_Part2` program:
+   Checkpoint 4 (75/100): A successful `PasswordCracking_Part2` project:
 
    * produces correct output for all test cases in Test Table 2 except
      `"aA1@@@"`
