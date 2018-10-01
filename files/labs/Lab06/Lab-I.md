@@ -7,28 +7,28 @@ title: "Arrays and files in Visual Basic I"
 * Reading from CSV files into parallel arrays
 * More practice with formatting strings
 
-# Preliminaries
-If you haven't already done so, start by making a copy of today's lab folder
-(`Lab06_Arrays_files`) and saving it in your `M:\CS130\Labs` folder. Right-click
-on the folder you just copied and rename it `Lab06_YourLastName_YourFirstName`
-(but use your actual last and first names). You may now work locally by opening
-the write-up from within the copied folder.
-
 # TL;DR
-Implement a program to predict the rating that a user will assign to a movie
-based on their ratings for other movies and the ratings of other users for the
+Implement a program to predict the rating that the user will assign to a movie
+based on their ratings for other movies and the ratings of other viewers for the
 same movies.
 
 # Background
-These lab exercises use a dataset that is maintained by the
+The objective for the lab is to make an accurate prediction of the rating that
+the user will assign to a particular movie based on their ratings for other
+movies and the ratings of other viewers for the same movies. The basic idea is
+to take the user's ratings for a set of movies and find other viewers with
+similar ratings. These similar viewers can then be used to inform our
+prediction.
+
+This lab exercise uses a dataset that is maintained by the
 [GroupLens](https://grouplens.org) research group at the University of
 Minnesota. The dataset is part of the [MovieLens](https://movielens.org)
 project. In their own words, MovieLens is a platform for "*Non-commercial,
 personalized movie recommendations*"; think Netflix recommendations, but not for
 profit. The dataset that we will be exploring consists of movie ratings for five
-popular movies from 22419 unique users. In the file `ML-latest.csv` each row
-constitutes the ratings for a single user for each of the five movies. For
-example, the first three rows in the file look like:
+popular movies from 22419 unique viewers. In the file `ML-ratings.csv` each row
+constitutes the ratings of a single viewer for each of the five movies listed in
+the file `ML-titles.txt`. The first three rows in the file look like:
 
 ```
 4.0,4.5,4.0,4.0,3.0
@@ -36,204 +36,180 @@ example, the first three rows in the file look like:
 5.0,5.0,5.0,5.0,5.0
 ```
 
-This means that user 0, rated movie 1, 4.0 stars out of 5 possible, movie 2, 4.5
-stars, movie 3, 4.0 stars, and so on. Likewise for user 1 and 2. The title for
-each of the five movies is recorded in file `ML-titles.txt`.
+This should be understood to mean that viewer 1 rated movie 1, 4.5 stars out of
+5 possible; movie 2, 4.0 stars; movie 3, 4.0 stars and so on. Likewise for
+viewer 2 and 3.
+
+Now, suppose that we added another row to the three rows above, for *the user*,
+who rated movies 1&ndash;4: 3.5, 4.5, 4.0, and 3.5, respectively. Then the
+task at hand is to make a prediction for that user's rating for movie 5 (`???`
+in the example below).
+
+```
+4.0,4.5,4.0,4.0,3.0
+3.0,4.0,5.0,4.0,5.0
+5.0,5.0,5.0,5.0,5.0
+3.5,4.5,4.0,3.5,???
+```
+
+A simple but unreliable way to do that would be to generate a random number
+between 0.0 and 5.0. Hopefully you see the potential limitations of this
+approach. If not, discuss it with someone around you.
+
+Since we have at our disposal a dataset that contains the ratings of 22419 other
+users (*viewers*), isn't it likely that some of them will have movie preferences
+similar to the user's? If so, couldn't we somehow use their ratings for movie 5
+to create a better than random prediction for the user's rating of movie 5? The
+answer is *hopefully*; the accuracy of a prediction system like Netflix, and the
+one that your are going to build, depends on it.
+
+In order to identify viewers similar to the user, we must have some quantitative
+way to determine similarity, i.e., a [similarity
+measure](https://en.wikipedia.org/wiki/Similarity_measure). A common way to do
+this is to calculate the absolute difference for each of the movie ratings
+between the user and a viewer and add these together to compute a total
+difference measurement. This difference measure is known as the [Manhattan
+Distance](https://en.wikipedia.org/wiki/Taxicab_geometry) (a.k.a. Taxicab
+distance). It is important to note that in this case, *distance* is the opposite
+of *similarity* (what we are really after). So, to find the most similar
+viewers, we should find the viewers that have the least distance to the user.
+
+Since we will ultimately be trying to predict the rating for movie 5, we will
+not include that rating in our distance calculation. Thus, if we take the user
+with ratings 3.5, 4.5, 4.0, and 3.5, then the distance between the user and
+viewer 1 is calculated as:
+
+```
+  |3.5-4.0| + |4.5-4.5| + |4.0-4.0| + |3.5-4.0|
+=  0.5      +  0.0      +  0.0      +  0.5
+=  1.0
+```
+
+So we would say that the Manhattan distance between the user and viewer 1 is
+1.0. Likewise between the user and viewer 1:
+
+```
+  |3.5-3.0| + |4.5-4.0| + |4.0-5.0| + |3.5-4.0|
+=  0.5      +  0.5      +  1.0      +  0.5
+=  2.5
+```
+
+Of the two viewers, the user is least different (read: most similar) to viewer
+1, since the distance calculation was 1.0 for viewer 1, compared with 2.5 for
+viewer 2.
+
+If we repeated this for all of the viewers in the dataset, we could
+determine which viewer has movie preferences most similar to the user, at which
+point we could use that viewer's rating of movie 5 to predict the user's rating
+of movie 5. However, as you will see, using a single viewer to inform
+predictions can also be unreliable. So in a final attempt at a more accurate
+prediction, most systems will aggregate the ratings of many similar users to
+inform the prediction. How many and how to combine their ratings will be
+discussed more in later parts of this lab.
+
+\newpage
 
 # Instructions
-The objective for the lab is to make an accurate prediction of the rating that a
-user will assign to a movie based on their ratings for other movies and the
-ratings of other users for the same movies. The basic idea is to take a user's
-ratings for a set of movies and find other users with similar ratings. These
-similar users can then be used to inform our prediction.
+1. Launch the RAPTOR software and use it to open the program called
+   `RatingPredictions_Part1.rap` inside of your lab folder.
 
-In order to identify similar users, we must have some quantitative way to
-determine similarity, i.e., a *similarity measure*. A common way to do this is
-to calculate the absolute difference for each of the movie ratings for two users
-and add these together to compute a total difference measurement. This distance
-measure is known as the [Manhattan
-Distance](https://en.wikipedia.org/wiki/Taxicab_geometry) (a.k.a. Taxicab
-distance).
+   As written, the program creates two parallel arrays, called `viewerRatings1`
+   and `viewerRatings2`, that hold the ratings for movie 1 and 2, respectively,
+   for the three viewers shown in [Background](#background). The user is asked
+   to input their ratings for movies 1 and 2, which are stored into variables
+   `userRating1` and `userRating2`. At this point the program is meant to
+   compute and display the distance between the user and each of the viewers.
+   Currently, the program does not compute the distances; you are to complete
+   the program to do this.
 
-Take the first two users in the example above. The difference between them is
-calculated as:
-
-```
-  |4.0-3.0| + |4.5-4.0| + |4.0-5.0| + |4.0-4.0| + |3.0-5.0|
-= 1.0 + 0.5 + 1.0 + 0.0 + 2.0
-= 4.5
-```
-
-So we would say that the Manhattan distance between the two users is 4.5. It is
-important to note that in this case, *distance* is the opposite of *similarity*,
-which is what we are really after. So, to find the most similar users, we should
-find the users with that have the least distance between them.
-
-Give it a try. Fill in the following table by computing the distance between the
-three users in the example above, then determine which two users are the most
-similar. Note, it is not necessary, or meaningful in this case, to compute the
-distance between a user and themselves, so each of these entries in the table is
-marked with `---`. You should also note that the Manhattan distance is
-*symmetric*, i.e., the distance between user *X* and user *Y* is the same as the
-distance between user *Y* and user *X*, so you only need to compute this
-distance once and then can fill in both cells in the table.
-
-```
-+---------------+-------------------+-------------------+-------------------+
-| User          | 0                 | 1                 | 2                 |
-+---------------+-------------------+-------------------+-------------------+
-| 0             | ---               |                   |                   |
-+---------------+-------------------+-------------------+-------------------+
-| 1             |                   | ---               |                   |
-+---------------+-------------------+-------------------+-------------------+
-| 2             |                   |                   | ---               |
-+---------------+-------------------+-------------------+-------------------+
-```
-
-1. Launch the RAPTOR software and use it to **open** an existing program called
-   `RatingPrediction_Part1.rap` inside of your lab folder.
-
-   The program creates an array of user ratings for **ONE** movie, called
-   `movie1` which currently stores three ratings, one for each of the three
-   users above. Then, using the rating input by the user into variable
-   `userRating`, the program is meant to compute the distance between the user
-   input rating, `userRating`, and the ratings of the other three users, stored
-   in the array `movie1`. The distance for between the input rating and the
-   three user ratings in the array should be stored in a second array called
-   `distance`. For instance, the first rating in `movie1[1]` is 4.0. If the user
-   input the value 3.5, then `distance[1]` should have the value 0.5. However,
-   the program is not completed yet!
-
-   Currently, the program loops over all the ratings in `movie1` (until `index >
-   length_Of(movie1)`) but does not compute any distances; you are to complete
-   the program `RatingPrediction_Part1.rap` to make this happen. Note than your
-   program must work correctly even if the ratings in `movie1` changes.
-
-   After you get your program working, fill out `Test Table 1` in the file
-   `RatingPredictions_TestTables.docx`, making sure that your expected output
-   and actual output are consistent.
-
-   \BEGIN{Warning}
-   When done, save and close file `RatingPredictions_Part1.rap`.
-   \END{Warning}
+   Before attempting to finish the program, fill out the *expected output*
+   column in Test Table 1 in `TestTables.docx`. Then, after you get your program
+   working, fill out the *actual output* column, making sure that the two
+   columns are consistent.
 
    \BEGIN{Rubric}
-   Checkpoint 1 (30/100): A successful `RatingPredictions_Part1.rap` program:
-
-   * produces correct output for all test cases in Test Table 1
+   Checkpoint 1 (30/100)
+   * program produces correct output for all test cases in Test Table 1
 
    \END{Rubric}
 
-   \newpage
+1. Launch the VS Express 2013 software and open the project called
+   `RatingPredictions_Part2` inside of your lab folder.
 
-1. Launch VS Express 2013 and open the project `RatingPredictions_Part2` which
-   can be found inside of your lab folder.
+   Complete the action for `btnComputeDistances` so that it is equivalent to
+   your RAPTOR program. You MUST use a `for`-loop to do this. Test the project
+   by checking that it is producing correct results for all of the test cases in
+   Test Table 1.
 
-   Complete the project `RatingPredictions_Part2` so that it is equivalent to
-   your RAPTOR program. However, you MUST use a `for`-loop in your Visual Basic
-   program rather than a `while`-loop. Test your program by checking that it is
-   producing correct results for all of the test cases in Test Table 1.
+   Then, update the button action so that it stores the ratings for all five of
+   the movies in parallel arrays called: `movie1`, `movie2`, `movie3`, `movie4`,
+   and `movie5`. Use the values from the example above. Remember to update your
+   distance calculation to include ratings for movies 1&ndash;4 only.
 
-   Now, update your program so that instead of having ratings for each of the
-   three users for a single movie (`movie1`), the ratings for
-   all five of the movies are stored in separate arrays called: `movie1`,
-   `movie2`, `movie3`, `movie4`, and `movie5`.
-
-   Besides declaring and assigning values to the new arrays, this change will
-   also require you to update your distance calculation to include the
-   additional movie ratings. You do not need a loop to loop over the five movie
-   arrays, you can assume that there will always be five movies from now on.
-
-   After you get your program working, fill out `Test Table 2` in the file
-   `RatingPredictions_TestTables.docx`, making sure that your expected output
-   and actual output are consistent.
-
-   \BEGIN{Warning}
-   Your project should behave identically to the solution which can be run by
-   double-clicking the file `RatingPredictions_Part2.exe` found in the
-   `Executables` folder inside of your lab folder.
-
-   When done, save and close project `RatingPredictions_Part2`.
-   \END{Warning}
+   Before attempting to finish the program, fill out the *expected output*
+   column in Test Table 2 in `TestTables.docx`. Then, after you get your program
+   working, fill out the *actual output* column, making sure that the two
+   columns are consistent.
 
    \BEGIN{Rubric}
-   Checkpoint 2 (65/100): A successful `RatingPredictions_Part2` project:
-
-   * is based on a complete and correct `RatingPredictions_Part1.rap` program
-   * produces correct output for all test cases in Test Table 2
+   Checkpoint 2 (65/100)
+   * project is based on a complete and correct `RatingPredictions_Part1.rap`
+     program
+   * project produces correct output for all test cases in Test Table 2
 
    \END{Rubric}
 
-   \newpage
-
-1. Use **File Explorer** to navigate to your lab folder. Copy and paste the
-   folder `RatingPredictions_Part2`, and then right-click on the copy to rename
-   it as `RatingPredictions_Part3`. Launch VS Express and use it to open the
+1. Copy and paste the folder `RatingPredictions_Part2`. Rename the copy
+   `RatingPredictions_Part3`. Launch the VS Express 2013 software and open the
    project `RatingPredictions_Part3`.
 
-   Make the necessary changes to the project `RatingPredictions_Part3` so that
-   instead of the three user ratings being assigned in the program, they are
-   instead read from the comma-separated-value file, `ML-ratings-small.csv`. The
-   rest of your program should not change. This file is provided for you in the
-   project folder `RatingPredictions_Part3`, in a sub-folder called `Bin/Debug`.
+   Complete the action for `btnLoadData` so that instead of the rating values
+   being assigned in `btnComputeDistances`, they are instead read from the
+   comma-separated value file, `ML-ratings-small.csv`. This file is provided for
+   you in the project folder `RatingPredictions_Part3`, in a sub-folder called
+   `Bin/Debug`. *Note: this will require changes in both buttons.*
 
-   Test your program by checking that it is producing correct results for all of
-   the test cases in Test Table 2.
-
-   \BEGIN{Warning}
-   Your project should behave identically to the solution which can be run by
-   double-clicking the file `RatingPredictions_Part3.exe` found in the
-   `Executables` folder inside of your lab folder.
-
-   When done, save and close project `RatingPredictions_Part3`.
-   \END{Warning}
+   Test the project by checking that it is still producing correct results for
+   all of the test cases in Test Table 2.
 
    \BEGIN{Rubric}
-   Checkpoint 3 (70/100): A successful `RatingPredictions_Part3` project:
-
-   * produces correct output for all test cases in Test Table 2, using ratings
-     input from the file `ML-ratings-small.csv`
+   Checkpoint 3 (70/100)
+   * project populates ratings with values from the file `ML-ratings-small.csv`
+   * project produces correct output for all test cases in Test Table 2
 
    \END{Rubric}
 
    \newpage
 
-1. Use **File Explorer** to navigate to your lab folder. Copy and paste the
-   folder `RatingPredictions_Part3`, and then right-click on the copy to rename
-   it as `RatingPredictions_Part4`. Launch VS Express and use it to open the
+1. Copy and paste the folder `RatingPredictions_Part3`. Rename the copy
+   `RatingPredictions_Part4`. Launch the VS Express 2013 software and open the
    project `RatingPredictions_Part4`.
 
-   Next, open the file `ML-ratings.csv` and look at its contents. This is the
-   full set of ratings for 22149 users for the five movies described in
-   `ML-titles.txt`.
-
-   Make the necessary changes to the project `RatingPredictions_Part4` to read
-   ratings from this file instead of `ML-ratings-small.csv`.
-
-   After updating your project to input ratings from the full dataset file,
-   change the output of the project to a table with the following format
+   Update the action for `btnComputeDistances` so that instead of the output
+   statement from the previous parts, it outputs a table with the following
+   format (the values in the following example are assuming the user input the
+   values specified in [Background](#background)):
 
    ```
-   User ID   Distance
-   ------------------
-       XXX        X.X
-       XXX        X.X
-         .          .
-         .          .
-         .          .
-   ------------------
+   Viewer ID   Distance
+   --------------------
+           1        3.5
+           2        3.0
+           3        7.0
+         ...        ...
+   --------------------
    ```
 
-   Declare a format string for such a table as follows:
+   You can declare a format string for such a table as follows:
 
    ```vbnet
-   Dim fmtStr As String = "{0,7}   {1,7:0.0}" & vbNewLine
+   Dim fmtStr As String = "{0,9}   {1,8:0.0}" & vbNewLine
    ```
 
-   which could then be used to format two variables like so:
+   Which could then be used to format two variables like so:
 
    ```vbnet
-   String.Format(fmtStr, i, distances(i))
+   String.Format(fmtStr, i + 1, distances(i))
    ```
 
    Thus, in `fmtStr`, we say that there are two *format items*, one for each of
@@ -257,19 +233,16 @@ distance once and then can fill in both cells in the table.
    [this](https://docs.microsoft.com/en-us/dotnet/standard/base-types/composite-formatting)
    documentation from Microsoft.
 
-   \BEGIN{Warning}
-   Your project should behave identically to the solution which can be run by
-   double-clicking the file `RatingPredictions_Part4.exe` found in the
-   `Executables` folder inside of your lab folder.
 
-   When done, save and close project `RatingPredictions_Part3`.
-   \END{Warning}
+   Lastly, update the action for `btnLoadData` so that it reads the rating
+   values from the file `ML-ratings-medium.csv` instead of
+   `ML-ratings-small.csv`. This is a set of 100 viewer ratings for the five
+   movies described in `ML-titles.txt`.
 
    \BEGIN{Rubric}
-   Checkpoint 4 (75/100): A successful `RatingPredictions_Part4` project:
-
-   * produces correctly formatted output for the `ML-ratings.csv` dataset ---
-     output should match EXACTLY the formatted specified in the example
+   Checkpoint 4 (75/100)
+   * project populates ratings with values from the file `ML-ratings-medium.csv`
+   * project produces correctly formatted output according to the example above
 
    \END{Rubric}
 
@@ -285,6 +258,6 @@ distance once and then can fill in both cells in the table.
    * study (again) any material you struggled with in this lab, and
    * study new material needed for the next lab
 
-   You will submit your work for this lab and the next one together at the end
-   of our next lab meeting.
+   You will submit your work for this lab and the next one together by midnight
+   Thursday.
   \END{Submission}
