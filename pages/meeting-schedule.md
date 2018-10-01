@@ -143,4 +143,152 @@ title: "Meeting schedule"
       <td>3.7</td>
     </tr>
   </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 4</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">17-Sep</td>
+      <td></td>
+      <td>Visual Basic: decisions</td>
+      <td>3.7</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 04 Part I</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: loops</td>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 04 Part II</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><a href="https://csbsju.instructure.com/courses/10164/pages/exam-1-study-guide">Exam 1</a></td>
+      <td></td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 5</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">24-Sep</td>
+      <td></td>
+      <td>Visual Basic: loops</td>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 05 Part I</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: loops</td>
+      <td>3.8</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 05 Part II</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: file I/O</td>
+      <td>3.9</td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 6</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">01-Oct</td>
+      <td></td>
+      <td>Visual Basic: arrays</td>
+      <td>3.10</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 06 Part I</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: arrays and files (max finding)</td>
+      <td>3.9&ndash;3.10</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 05 Part II</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: searching (exhaustive)</td>
+      <td>3.11</td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 7</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">08-Oct</td>
+      <td></td>
+      <td><em>NO CLASS</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><em>NO LAB</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: searching (match/stop)</td>
+      <td>3.11</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><em>NO LAB</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Exam 2</td>
+      <td></td>
+    </tr>
+  </tbody>
 </table>
