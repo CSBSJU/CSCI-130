@@ -245,7 +245,7 @@ title: "Meeting schedule"
     </tr>
     <tr>
       <td></td>
-      <td>Lab 05 Part II</td>
+      <td>Lab 06 Part II</td>
       <td></td>
     </tr>
     <tr>
@@ -287,7 +287,7 @@ title: "Meeting schedule"
     </tr>
     <tr>
       <td></td>
-      <td>Exam 2</td>
+      <td><a href="https://csbsju.instructure.com/courses/10164/pages/exam-2-study-guide">Exam 2</a></td>
       <td></td>
     </tr>
   </tbody>
