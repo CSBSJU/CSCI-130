@@ -17,7 +17,6 @@ title: "Arrays and files in Visual Basic II"
 
    Work on `btnPredictRatings`.
 
-   **TODO** Better description with reference to book on how to find minimum.
    Using a `For`-loop, find the minimum value in the `distances` array. Be sure
    to keep track of the index where the minimum value appeared. This index
    represents the id of the viewer that is the least different from the user.
@@ -26,7 +25,7 @@ title: "Arrays and files in Visual Basic II"
    Output the predicted rating in a message with the following format:
 
    ```
-   The most similar viewer was viewer #39 and the distance calulcated was 1.0.
+   The most similar viewer was viewer #40 and the distance calulcated was 1.0.
    The predicated rating for movie 5 is 3.0.
    ```
 
@@ -51,12 +50,6 @@ title: "Arrays and files in Visual Basic II"
    dataset that is the least different from the user and using that viewer's
    rating for movie 5 to predict the user's rating for movie 5 is not very
    robust, i.e., it is likely to produce incorrect predictions.
-
-   \BEGIN{Warning}
-    TODO: Give some examples, what are the predictions for user XXX (find a user
-    later in the dataset that is identical to one of the first three users, but
-    has different predictions for movie 5
-   \END{Warning}
 
    However, your work up to this point is not for naught. Rather than using just
    the viewer that is least different from the user, we can greatly improve the
@@ -97,11 +90,6 @@ title: "Arrays and files in Visual Basic II"
    track of the indices that each of the distances in their new sorted order,
    correspond to.
 
-   \BEGIN{Warning}
-    **TODO** Have students work on student name problem to see how the two
-    parameter variant of `Array.Sort` can help them.
-   \END{Warning}
-
    Fortunately, with a small modification, we can have `Array.Sort` produce a
    second array which stores the index from the unsorted array for each value in
    the sorted `distances` array. To do this, we must supply a second array to
@@ -115,15 +103,16 @@ title: "Arrays and files in Visual Basic II"
        viewerId(i) = i
    Next i
 
-   Array.Sort(distance, viewerID)
+   Array.Sort(distances, viewerID)
    ```
 
-   Now we can find out which viewer corresponds to a particular distance in the
-   `distances` array like so:
+   Now we can get information about the viewers after they have been sorted by
+   their distance from the viewer like so:
 
    ```vbnet
    outResults.AppendText("The distance between viewer #" & viewerID(0) & _
-       " and the user is " & distances(0))
+       " and the user is " & distances(0) & ". Viewer #" & viewerID(0) & _ 
+       " rated movie five " & viewerRatings5(viewerID(0)) & " stars.")
    ```
 
    Now, reproduce the prediction from the previous part, i.e., predict based on
@@ -151,27 +140,27 @@ title: "Arrays and files in Visual Basic II"
    `RatingPredictions_Part7`. Launch the VS Express 2013 software and open the
    project `RatingPredictions_Part7`.
 
-   Ask the user to input an integer, *k*, that will be used to choose the *k*
-   closest matches to the user's sample. Using the sorted `dataset` array and
-   the `sampleNumber` array, output the *k* least different dataset samples in a
-   table formatted as follows:
+   Update the action for `btnPredictRatings` to ask the user to input an
+   integer, *k*, that will be used to choose the *k* most similar viewers to the
+   user. Using the sorted `distances` array and the `viewerID` array, output the
+   *k* most similar viewers to the user in a table with the following format:
 
    ```
    Viewer ID   Movie five   Distance
    ---------------------------------
-          39          3.0        1.0
-          75          5.0        2.0
-          76          4.5        2.0
-           8          0.5        2.0
-           6          3.0        2.0
+          40          3.0        1.0
+          76          5.0        2.0
+          77          4.5        2.0
+           9          0.5        2.0
+           7          3.0        2.0
    ---------------------------------
    ```
 
    \BEGIN{Rubric}
    Checkpoint 7 (95/100)
 
-   * project uses sorted parallel arrays, `distances` and `userId` to make
-     predictions
+   * project outputs the viewer id, prediction for movie five, and the distance
+     from each of the top *k* viewers to the user
    * project produces correctly formatted output according to the example above
 
    \END{Rubric}
@@ -180,9 +169,21 @@ title: "Arrays and files in Visual Basic II"
    `RatingPredictions_Part8`. Launch the VS Express 2013 software and open the
    project `RatingPredictions_Part8`.
 
-   Find the average of the top *k* values and use this as a prediction.
+   Update the action for `btnPredictRatings` to find the average of the top *k*
+   values and use this as a prediction. Below the table that was created in the
+   previous part, you should output your prediction in a statement with the
+   following format:
 
    ```
+   Viewer ID   Movie five   Distance
+   ---------------------------------
+          40          3.0        1.0
+          76          5.0        2.0
+          77          4.5        2.0
+           9          0.5        2.0
+           7          3.0        2.0
+   ---------------------------------
+   The predicted rating for movie five is 3.2.
    ```
 
    \BEGIN{Rubric}
@@ -193,6 +194,8 @@ title: "Arrays and files in Visual Basic II"
    * project produces correctly formatted output according to the example above
 
    \END{Rubric}
+
+   \newpage
 
    \BEGIN{Submission}
    **Submission Instructions**
