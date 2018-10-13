@@ -277,8 +277,8 @@ title: "Meeting schedule"
     </tr>
     <tr>
       <td></td>
-      <td>Visual Basic: searching (match/stop)</td>
-      <td>3.11</td>
+      <td>Exam 2 review</td>
+      <td></td>
     </tr>
     <tr>
       <td></td>
@@ -288,6 +288,339 @@ title: "Meeting schedule"
     <tr>
       <td></td>
       <td><a href="https://csbsju.instructure.com/courses/10164/pages/exam-2-study-guide">Exam 2</a></td>
+      <td></td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 8</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">15-Oct</td>
+      <td></td>
+      <td>Visual Basic: searching (match/stop)</td>
+      <td>3.11</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 07 Part I</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: search (applications)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 07 Part II</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: advanced topics</td>
+      <td></td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 9</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">22-Oct</td>
+      <td></td>
+      <td>Visual Basic: advanced topics</td>
+      <td>3.11</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 08 Part I</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Visual Basic: advanced topics</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 08 Part II</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Excel: introduction</td>
+      <td>5.1&ndash;5.3</td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 10</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">29-Oct</td>
+      <td></td>
+      <td>Excel: more on functions, formulas and charts</td>
+      <td>5.1&ndash;5.4</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 09</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Excel: applications, simulation and forecasting</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 10</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Excel: introduction to macros</td>
+      <td>5.6&ndash;5.7</td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 11</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">05-Nov</td>
+      <td></td>
+      <td>Excel: more on macros</td>
+      <td>5.6&ndash;5.7</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 11 Part I</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>System: processor design and machine language</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 11 Part II</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Exam 3</td>
+      <td>7.1&ndash;7.4</td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 12</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">12-Nov</td>
+      <td></td>
+      <td>System: assembly language</td>
+      <td>7.5&ndash;7.6</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab project: introduction</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>System: translating Visual Basic to assembly language</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 12</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>System: translating Visual Basic to assembly language</td>
+      <td></td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 13</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">19-Nov</td>
+      <td></td>
+      <td>Data representation: introduction to numeral systems</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 13</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><em>NO CLASS</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><em>NO LAB</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><em>NO CLASS</em></td>
+      <td></td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 14</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">26-Nov</td>
+      <td></td>
+      <td>Data representation: unsigned integers</td>
+      <td>6.2&ndash;6.4</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab project: work time</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Data representation: two's complement</td>
+      <td>6.5</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 14</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Data representation: floating-point</td>
+      <td></td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 15</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">03-Dec</td>
+      <td></td>
+      <td>Data representation: non-numeric data</td>
+      <td>6.7&ndash;6.10</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab 15</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Advanced topics</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab project: work time</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Exam 4</td>
+      <td></td>
+    </tr>
+  </tbody>
+
+  <thead>
+    <tr class="ic-Table__row--bg-neutral">
+      <th>Week 16</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="0" style="vertical-align:top">10-Dec</td>
+      <td></td>
+      <td>Advanced topics</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Lab project: presentations</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><em>STUDY DAY</em></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>Final exam</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>&nbsp;</td>
       <td></td>
     </tr>
   </tbody>
