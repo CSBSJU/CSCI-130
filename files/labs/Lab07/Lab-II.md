@@ -39,21 +39,19 @@ title: "Data searching in Visual Basic II"
 
    Now, instead of displaying the count of matching passengers in the input
    class, modify your program to compute and print the percentage of survivors
-   and their average age rounded to two decimal places. Test your program for
-   the following input cases and make sure it produces the expected output shown
-   in Table 4.
+   rounded to two decimal places. Test your program for the following input
+   cases and make sure it produces the expected output shown in Table 4.
 
    \vspace{1ex}
-   \begin{tabularx}{\linewidth}{|l|X|X|}
+   \begin{tabularx}{\linewidth}{|l|X|}
     \hline
-    \multicolumn{3}{|l|}{\textbf{Table 4}}
+    \multicolumn{2}{|l|}{\textbf{Table 4}}
     \\\hline
     \textbf{Input values for class} &
-      \textbf{Expected percentage} &
-      \textbf{Expected average age}\\\hline 
-    \texttt{3} & \texttt{24.44} & \texttt{21.41}\\\hline
-    \texttt{2} & \texttt{47.28} & \texttt{26.17}\\\hline
-    \texttt{1} & \texttt{62.96} & \texttt{35.96}\\\hline
+      \textbf{Expected program output}\\\hline 
+    \texttt{3} & \texttt{24.44\%}\\\hline
+    \texttt{2} & \texttt{47.28\%}\\\hline
+    \texttt{1} & \texttt{62.96\%}\\\hline
    \end{tabularx}
    \vspace{1ex}
 

@@ -38,10 +38,7 @@ values, in the order shown:
 * *Fare paid* for ticket in British pounds
 * *Survival status* where 1 means survived, and 0 means died
 
-We also included a smaller version of the data in a file called
-`TitanicSmaller.csv` which has ten rows and two columns (Passenger ticket class
-and Gender); this file will prove useful for testing purposes. Please take some
-time to study BOTH files.
+Please take some time to study this file.
 
 \newpage
 
@@ -50,10 +47,12 @@ time to study BOTH files.
    `Searching_Part1` inside of your lab folder.
 
    Complete the action for `btnLoadData` so that it reads the values from the
-   file, `Titanic.csv` into six parallel arrays. Output the information
-   for each of the passengers as well as the total number of passengers'
-   information read from the file (should be 887). The output should have the
-   following format:
+   file, `Titanic.csv` into six parallel arrays. You can rely on Visual Basic to
+   automatically convert the 1s and 0s in the last column to `True` and `False`
+   in the output, so long as you chose the correct datatype for the
+   corresponding array. Output the information for each of the passengers as
+   well as the total number of passengers' information read from the file
+   (should be 887). The output should have the following format:
 
    ```
    3 male Mr. Owen Harris Braund 22 7.25 False
@@ -81,7 +80,7 @@ time to study BOTH files.
    `Searching_Part2`. Launch the VS Express 2013 software and open the project
    `Searching_Part2`.
 
-   Complete the action for `btnSeachByName` to search for a passenger, whose
+   Complete the action for `btnSearchByName` to search for a passenger, whose
    name is input by the user, and display their name, ticket class, age, fare
    paid, and survival status. An error message should be displayed if the input
    name is not valid.  You MUST solve this problem using match and stop
@@ -89,13 +88,13 @@ time to study BOTH files.
    Laina Heikkinen*", then the output would be:
 
    ```
-   Miss. Laina Heikkinen 3 26 7.93 1
+   Miss. Laina Heikkinen 3 26 7.93 True
    ```
 
-   Next, change your program so that it displays `SURVIDED` if the passenger
-   survived (instead of a 1) or `DIED` otherwise (instead of a 0). Test your
-   project for the following input cases and make sure that it produces the
-   expected output formatted EXACTLY as shown below.
+   Next, change your program so that it displays `SURVIVED` if the passenger
+   survived (instead of a `True`) or `DIED` otherwise (instead of a `False`).
+   Test your project for the following input cases and make sure that it
+   produces the expected output formatted EXACTLY as shown below.
 
    \vspace{1ex}
    \begin{tabularx}{\linewidth}{|l|X|}
@@ -130,10 +129,10 @@ time to study BOTH files.
    `Searching_Part3`. Launch the VS Express 2013 software and open the project
    `Searching_Part3`.
 
-   Update the action for `btnSeachByName` to make your program handle
+   Update the action for `btnSearchByName` to make your program handle
    capitalization issues (such as the second case in Table 1) and additional
    spaces at the beginning and end of the input name (such as the fourth case
-   in Table 1). The table below shows the new excepted output for your project
+   in Table 1). The table below shows the new expected output for your project
    to produce.
 
    \vspace{1ex}
@@ -169,8 +168,8 @@ time to study BOTH files.
    `Searching_Part4`. Launch the VS Express 2013 software and open the project
    `Searching_Part4`.
 
-   Update the action for `btnSeachByName` to allow for partial matches (such as
-   the fifth case in Table 1). The table below shows the new excepted output for
+   Update the action for `btnSearchByName` to allow for partial matches (such as
+   the fifth case in Table 1). The table below shows the new expected output for
    your project to produce.
 
    \vspace{1ex}
