@@ -15,22 +15,23 @@ This exercise will give you a better understanding and appreciation for
 filesystems and document storage.
 
 # Background
-\BEGIN{Warning}
-Just the other day, I took a stroll around campus with a friend (Dan
-Armendariz of MIT, whose skills with a camera outshine my point-and-shoot
-tendencies) snapping photos, all of which were stored as JPEGs on a 4GB Secure
-Digital (SD) card. Rather than act like typical tourists, taking photos of John
-Harvard's foot (ugh) and squirrels (I mean, really), we opted to shoot
-identifiable but non-obvious persons, places, and things on campus.
-\END{Warning}
+Like the good tax payer that I am, I keep copies of tax documents for up to six
+years\textemdash per the recommendation by the IRS. Since I accumulate many
+documents over that time period, it would be inconvenient to keep hard-copies of
+them all, not to mention that I would have to store and organize all of them
+somewhere. Instead, I generally keep soft-copies (digital copies) of them which
+can be easily stored and require almost no space. I typically do this, by
+taking pictures of each of the documents with a digital camera. The other day, I
+was digitizing some of my documents in preparation for the upcoming tax season
+when I saw this:
 
 ![](pic1.png)
 
-Unfortunately, I somehow corrupted the SD card the moment I got home. Both my
-Mac and PC refuse to recognize the card now as having any photos, even though
-I'm pretty sure we took them. Both operating systems want to format the card,
-but, thus far, I've refused to let them, hoping instead someone can come to the
-rescue.
+Unfortunately, I somehow corrupted the SD card. Both my Mac and PC refuse to
+recognize the card now as having any photos, even though I'm certain that I took
+them. Did I just lose six years worth of tax documents? Both operating systems
+want to format the card, but, thus far, I've refused to let them, hoping instead
+someone can come to the rescue.
 
 Write a program called `ImageRecover` that recovers these photos. (Please!)
 
