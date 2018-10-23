@@ -137,16 +137,16 @@ JPEGs.
    the file in its finest granularity, i.e., the byte. So you would say:
 
    ```vbnet
-   FileOpen(1, "card.raw", OpenMode.Binary, AccessMode.Read)
+   FileOpen(1, "card.raw", OpenMode.Binary, OpenAccess.Read)
    ```
 
    The additional input to `FileOpen()`{.vbnet}, namely
-   `AccessMode.Read`{.vbnet}, is required to indicate that you are wanting to
+   `OpenAccess.Read`{.vbnet}, is required to indicate that you are wanting to
    input data from the file. If you were wanting to save data to the file, you
    would instead say:
 
    ```vbnet
-   FileOpen(1, "card.raw", OpenMode.Binary, AccessMode.Write)
+   FileOpen(1, "card.raw", OpenMode.Binary, OpenAccess.Write)
    ```
 
    Since you did not use `OpenMode.Input`{.vbnet} you cannot use `Input()` to
@@ -228,7 +228,7 @@ JPEGs.
    in the file. The output should have the following format:
 
    ```
-   Block #00001 has 235 088 144 066
+   Block #00001 has 235 060 144 109
    Block #00002 has 000 000 000 000
    Block #00003 has 000 000 000 000
    ...
