@@ -228,15 +228,15 @@ JPEGs.
    in the file. The output should have the following format:
 
    ```
-   Block #00001 has 235 060 144 109
-   Block #00002 has 000 000 000 000
-   Block #00003 has 000 000 000 000
+   Block #00001 has: 235 060 144 109
+   Block #00002 has: 000 000 000 000
+   Block #00003 has: 000 000 000 000
    ...
-   Block #00017 has 248 255 255 255
-   Block #00018 has 001 001 002 001
+   Block #00017 has: 248 255 255 255
+   Block #00018 has: 001 001 002 001
    ...
-   Block #14499 has 197 193 211 149
-   Block #15000 has 099 015 026 161
+   Block #14499 has: 197 193 211 149
+   Block #14500 has: 099 015 026 161
    -----
    Total blocks in file: 14500
    ```
