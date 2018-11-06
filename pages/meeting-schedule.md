@@ -426,7 +426,7 @@ title: "Meeting schedule"
     <tr>
       <td></td>
       <td>System: processor design and machine language</td>
-      <td></td>
+      <td>7.1&ndash;7.4</td>
     </tr>
     <tr>
       <td></td>
@@ -435,8 +435,8 @@ title: "Meeting schedule"
     </tr>
     <tr>
       <td></td>
-      <td>Exam 3</td>
-      <td>7.1&ndash;7.4</td>
+      <td><a href="https://csbsju.instructure.com/courses/10164/pages/exam-3-study-guide">Exam 3</a></td>
+      <td></td>
     </tr>
   </tbody>
 
