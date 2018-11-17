@@ -1,0 +1,24 @@
+├── announcements - exam 1 is coming up soon
+│   │
+│   └── i will post a list of review topics on canvas - the assignment will
+│       contain that list
+│
+├── walk-through solution to last class' problem
+│
+├── start w/ RAPTOR program and add input validation
+│
+├── translate program into VB
+│
+├── introduce random numbers
+│   │
+│   ├── go through RAPTOR Random, range is [0,1)
+│   │
+│   └── go through VB Rnd()
+│
+└── introduce pattern matching
+    │
+    ├── checking if a string contains vowels
+    │
+    ├── checking if a string contains digits
+    │
+    └── demonstration of using ranges of characters like a-z
