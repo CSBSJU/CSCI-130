@@ -46,8 +46,8 @@ submit it in your lab folder for grading purposes.
 # Instructions
 
 1. Translate the following VBA macro into an assembly language program using the
-   variable names in the VBA exactly as the labels assembly. Save your program
-   as `EchoValues.as`.
+   variable names in the VBA exactly as the labels in assembly. Save your
+   program as `EchoValues.as`.
 
    ```vbnet
    Sub EchoValues()
@@ -89,7 +89,7 @@ submit it in your lab folder for grading purposes.
    `CalculatePerimeter.as`. Open the file in SymHymn.
 
    Translate the following VBA macro into an assembly language program using the
-   variable names in the VBA exactly as the labels assembly.
+   variable names in the VBA exactly as the labels in assembly.
 
    ```vbnet
    Sub CalculatePerimeter()
@@ -132,20 +132,21 @@ submit it in your lab folder for grading purposes.
 
    \newpage
 
-1. Copy and paste the file `CalculatePerimeter.as`. Rename the copy
-   `CalculatePerimeterWithBoundsChecking.as`. Open the file in SymHymn.
+1. Copy and paste the file `CalculatePerimeter.as`.  
+   Rename the copy `CalculatePerimeterWithBoundsCheckingPart1.as`. Open the file
+   in SymHymn.
 
    Translate the following VBA macro into an assembly language program using the
-   variable names in the VBA exactly as the labels assembly.
+   variable names in the VBA exactly as the labels in assembly.
 
    ```vbnet
-   Sub CalculatePerimeterWithBoundsChecking()
+   Sub CalculatePerimeterWithBoundsCheckingPart1()
      '
      ' Calculate Perimeter Macro
      ' This program will calculate and display the perimeter
      ' of a rectangular shape where the width and length are
      ' obtained from the user. The program will check to make
-     ' sure the meaningful values are input.
+     ' sure that a meaningful value is input for the width.
      '
      Dim rectangleWidth As Integer
      Dim rectangleLength As Integer
@@ -184,17 +185,22 @@ submit it in your lab folder for grading purposes.
 
    \newpage
 
-1. Update your solution to Checkpoint 3 so that it is a translation of the
-   following VBA macro.
+1. Copy and paste the file `CalculatePerimeterWithBoundsCheckingPart1.as`.  
+   Rename the copy `CalculatePerimeterWithBoundsCheckingPart2.as`. Open the file
+   in SymHymn.
+
+   Translate the following VBA macro into an assembly language program using the
+   variable names in the VBA exactly as the labels in assembly.
 
    ```vbnet
-   Sub CalculatePerimeterWithBoundsChecking()
+   Sub CalculatePerimeterWithBoundsCheckingPart2()
      '
      ' Calculate Perimeter Macro
      ' This program will calculate and display the perimeter
      ' of a rectangular shape where the width and length are
      ' obtained from the user. The program will check to make
-     ' sure the meaningful values are input.
+     ' sure that meaningful values are input for the width
+     ' and the length.
      '
      Dim rectangleWidth As Integer
      Dim rectangleLength As Integer
@@ -235,21 +241,22 @@ submit it in your lab folder for grading purposes.
 
    \newpage
 
-1. Copy and paste the file `CalculatePerimeterWithBoundsChecking.as`.  
+1. Copy and paste the file `CalculatePerimeterWithBoundsCheckingPart2.as`.  
    Rename the copy `CalculatePerimeterWithBoundsCheckingLoop.as`. Open the file
    in SymHymn.
 
    Translate the following VBA macro into an assembly language program using the
-   variable names in the VBA exactly as the labels assembly.
+   variable names in the VBA exactly as the labels in assembly.
 
    ```vbnet
    Sub CalculatePerimeterWithBoundsCheckingLoop()
      '
      ' Calculate Perimeter Macro
-     ' This program will calculate and display the perimeter
-     ' of a rectangular shape where the width and length are
-     ' obtained from the user. The program will check to make
-     ' sure the meaningful values are input.
+     ' This program will repeatedly calculate and display the
+     ' perimeter of a rectangular shape where the width and
+     ' length are obtained from the user. The program will
+     ' check to make sure that meaningful values are input for
+     ' the width and the length.
      '
      Dim rectangleWidth As Integer
      Dim rectangleLength As Integer
@@ -297,8 +304,8 @@ submit it in your lab folder for grading purposes.
    \newpage
 
 1. Translate the following VBA macro into an assembly language program using the
-   variable names in the VBA exactly as the labels assembly. Save your program
-   as `CalculateArea.as`.
+   variable names in the VBA exactly as the labels in assembly. Save your
+   program as `CalculateArea.as`.
 
    ```vbnet
    Sub CalculateArea()
