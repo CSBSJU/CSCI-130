@@ -547,7 +547,7 @@ title: "Meeting schedule"
     <tr>
       <td></td>
       <td>Data representation: floating-point</td>
-      <td></td>
+      <td>6.6</td>
     </tr>
   </tbody>
 
@@ -583,7 +583,7 @@ title: "Meeting schedule"
     </tr>
     <tr>
       <td></td>
-      <td>Exam 4</td>
+      <td><a href="https://csbsju.instructure.com/courses/10164/pages/exam-4-study-guide">Exam 4</a></td>
       <td></td>
     </tr>
   </tbody>
