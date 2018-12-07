@@ -113,6 +113,9 @@ midnight on the due date indicated above.
 
 ### {% icon rubric %} Project report
 
+A template for you project report can be found [here]({% file
+handouts/report-template.docx %}).
+
 #### Features
 The project should incorporate features from the following set of Visual Basic
 features:
@@ -204,12 +207,11 @@ QUESTIONS TO ASK YOURSELF WHEN DONE:
 <br/>
 ## Submission
 On the due date, submit a soft copy of your project report and your project
-itself in a single folder. A template for you project report can be found
-[here]({% file files/handouts/report-template.docx %}).
+itself in a single folder.
 
-The folder for your project should be named Lastname1Lastname2VBProject, for a
+The folder for your project should be named `Lastname1Lastname2VBProject`, for a
 group with two people. To turn in your project, you will copy and paste this
-folder into the N:\Handins\CS130 folder.
+folder into the `N:\Handins\CS130` folder.
 
 OTHER IMPORTANT COMMENTS: If you use data files or picture/image files in your
 code, make sure to put them in the Bin/Debug folder of your project.
