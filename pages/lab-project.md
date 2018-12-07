@@ -201,16 +201,15 @@ QUESTIONS TO ASK YOURSELF WHEN DONE:
   * Does the program adequately address the problem?
   * Does it work correctly?
 
-<!--
 <br/>
 ## Submission
 On the due date, submit a soft copy of your project report and your project
-itself in a single zip archive. A template for you project report can be found
-here.
+itself in a single folder. A template for you project report can be found
+[here]({% file files/handouts/report-template.docx %}).
 
-All files for your project, including your report, should be placed in a single
-folder named Lastname1Lastname2VBProject. To turn in your project, you will copy
-and paste this folder into the N:\Handins\CS130 folder.
+The folder for your project should be named Lastname1Lastname2VBProject, for a
+group with two people. To turn in your project, you will copy and paste this
+folder into the N:\Handins\CS130 folder.
 
 OTHER IMPORTANT COMMENTS: If you use data files or picture/image files in your
-code, put them in the Bin/Debug folder of your project.-->
+code, make sure to put them in the Bin/Debug folder of your project.
