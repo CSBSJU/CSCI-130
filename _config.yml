@@ -8,9 +8,8 @@ canvas:
   exclude:
     - files/lectures/**/notes.txt
   # Selectively include files/folders that have been previously excluded.
-
-# Syntax highlighting
-highlighter: rouge
+  # include:
+  #   - files/slides/**/*-final.pdf
 
 # Exclude the following files/folders from processing. Jekyll currently gives
 # exclude precedence over include, so list files/folders to be excluded here.
@@ -18,4 +17,5 @@ exclude:
   - AUTHORS
   - LICENSE
   - files
+  - Gemfile*
   - vendor
